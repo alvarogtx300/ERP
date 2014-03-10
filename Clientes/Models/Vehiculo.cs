@@ -7,5 +7,17 @@ using System.Threading.Tasks;
 
 namespace Clientes.Models {
     class Vehiculo : ObservableObject {
+        string modelo, matricula;
+        //relacionCliente
+
+        public string Modelo {
+            get { return modelo; }
+            set { SetProperty(ref modelo, value, () => Modelo); } 
+        }
+
+        public string Matricula {
+            get { return matricula; }
+            set { SetProperty(ref matricula, value, () => Matricula); }
+        }  
     }
 }
