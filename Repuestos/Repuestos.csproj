@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\Repuesto.cs" />
+    <Compile Include="ViewModels\PrincipalVM.cs" />
     <Compile Include="ViewModels\ProveedorVM.cs" />
     <Compile Include="ViewModels\RepuestoVM.cs" />
     <Compile Include="Views\Principal.xaml.cs">

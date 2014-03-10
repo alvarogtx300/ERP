@@ -61,6 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Clientes.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clientes\Clientes.csproj">
+      <Project>{26a7de31-aee8-426c-8e93-48aa44f41449}</Project>
+      <Name>Clientes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repuestos\Repuestos.csproj">
+      <Project>{f896c995-995f-4cc9-a1e8-344bab5ff6e0}</Project>
+      <Name>Repuestos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,7 +23,7 @@ namespace Repuestos.Models {
 
         public string Descripccion {
             get { return descripcion; }
-            set { SetProperty(ref descripcion, value, () => Descripccion; }
+            set { SetProperty(ref descripcion, value, () => Descripccion); }
         }
     }
 }
