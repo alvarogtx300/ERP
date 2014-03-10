@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clientes.ViewModels {
-    class PrincipalVM {
+    public class PrincipalVM {
     }
 }
