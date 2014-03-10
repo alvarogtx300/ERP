@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Repuestos {
+namespace Inicio {
     /// <summary>
     /// Lógica de interacción para App.xaml
     /// </summary>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26A7DE31-AEE8-426C-8E93-48AA44F41449}</ProjectGuid>
+    <ProjectGuid>{9ED93757-FFD4-48CF-9292-979C91394EBB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Clientes</RootNamespace>
-    <AssemblyName>Clientes</AssemblyName>
+    <RootNamespace>Inicio</RootNamespace>
+    <AssemblyName>Inicio</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,17 +49,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Principal.xaml">
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Vehiculo.cs" />
-    <Compile Include="ViewModels\ClienteVM.cs" />
-    <Compile Include="ViewModels\PrincipalVM.cs" />
-    <Compile Include="ViewModels\VehiculoVM.cs" />
-    <Compile Include="Views\Principal.xaml.cs">
-      <DependentUpon>Principal.xaml</DependentUpon>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -88,10 +91,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MVVMBase\CH07.CookbookMVVM\Framework.csproj">
-      <Project>{f731eeb3-d6f2-4fd8-96b0-6a03db4c65d6}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
