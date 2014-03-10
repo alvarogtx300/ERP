@@ -62,8 +62,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="ViewModels\ClienteVM.cs" />
     <Compile Include="ViewModels\PrincipalVM.cs" />
+    <Compile Include="ViewModels\VehiculoVM.cs" />
     <Compile Include="Views\Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,7 +98,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMBase\CH07.CookbookMVVM\Framework.csproj">
+      <Project>{f731eeb3-d6f2-4fd8-96b0-6a03db4c65d6}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
