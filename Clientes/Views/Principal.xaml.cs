@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Clientes {
+namespace Clientes.Views {
     public partial class Principal : Window {
         public Principal() {
             InitializeComponent();
