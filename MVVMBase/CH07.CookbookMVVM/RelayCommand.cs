@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace CH07.CookbookMVVM {
+namespace Framework {
     public class RelayCommand<T> : ICommand {
         private static bool CanExecute(T parameter) {
             return true;

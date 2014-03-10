@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CH07.CookbookMVVM {
+namespace Framework {
     public abstract class ViewModelBase : ObservableObject {
     }
 

@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CH07.CookbookMVVM {
+namespace Framework {
     public abstract class ObservableObject : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propName) {
