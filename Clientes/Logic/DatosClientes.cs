@@ -27,6 +27,139 @@ namespace Clientes.Logic {
                     Apellidos = "Manzanas", 
                     Direccion = "Av. Falsa 321", 
                     Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
+				}, 
+                new Cliente {
+					Dni = "22222222B",
+                    Nombre = "Alvaro", 
+                    Apellidos = "Manzanas", 
+                    Direccion = "Av. Falsa 321", 
+                    Telefono = 987654321
 				}
 			};
 
