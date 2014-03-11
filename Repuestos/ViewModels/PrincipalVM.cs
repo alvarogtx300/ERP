@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clientes.ViewModels {
-    public class PrincipalVM {
-    }
+namespace Repuestos.ViewModels {
+	public class PrincipalVM {
+	}
 }

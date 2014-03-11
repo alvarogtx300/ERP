@@ -20,5 +20,5 @@ namespace Repuestos.Views {
         public Principal() {
             InitializeComponent();
         }
-    }
+	}
 }

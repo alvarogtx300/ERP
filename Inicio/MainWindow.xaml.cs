@@ -14,12 +14,28 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Inicio {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Lógica de interacción para MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window {
+		public MainWindow() {
+			InitializeComponent();
+		}
+
+		private void clientes(object sender, RoutedEventArgs e) {
+			var vm = new Clientes.ViewModels.PrincipalVM();
+			var view = new Clientes.Views.Principal {
+				DataContext=vm
+			};
+			view.Show();
+		}
+
+		private void repuestos(object sender, RoutedEventArgs e) {
+			var vm = new Repuestos.ViewModels.PrincipalVM();
+			var view =new Repuestos.Views.Principal{
+				DataContext=vm
+			};
+			view.Show();
+		}
+	}
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Clientes.Models {
     class Vehiculo : ObservableObject {
         string modelo, matricula;
-        //relacionCliente
+        Cliente relacionCliente
 
         public string Modelo {
             get { return modelo; }
@@ -16,6 +16,11 @@ namespace Clientes.Models {
         }
 
         public string Matricula {
+            get { return matricula; }
+            set { SetProperty(ref matricula, value, () => Matricula); }
+        }
+
+        public Cliente RelacionCliente {
             get { return matricula; }
             set { SetProperty(ref matricula, value, () => Matricula); }
         }  
