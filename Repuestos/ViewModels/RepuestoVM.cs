@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repuestos.ViewModels {
-	class RepuestoVM : ViewModelBase<Repuesto>{
+	public class RepuestoVM : ViewModelBase<Repuesto>{
 
 		public int Codigo {
 			get { return Model.Codigo; }

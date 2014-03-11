@@ -7,31 +7,47 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repuestos.Logic {
-	class FacadeRepuestos {
-		IDAORepuestos repuestos;
+	public class FacadeRepuestos {
+		IDAORepuestos datos;
 
 		public FacadeRepuestos()
 		{
-			repuestos = DatosRepuestos.Instance;
+			datos = DatosRepuestos.Instance;
 		}
 
 		public ObservableCollection<Repuesto> ListarRepuestos()
 		{
-			return repuestos.ListarRepuestos();
+			return datos.ListarRepuestos();
 		}
 
 		public void AgregarRepuesto(Repuesto r)
 		{
-			repuestos.AgregarRepuesto(r);
+			datos.AgregarRepuesto(r);
 		}
 
 		public void EliminarRepuesto(Repuesto r)
 		{
-			repuestos.EliminarRepuesto(r);
+			datos.EliminarRepuesto(r);
 		}
 
 		public void ModificarRepuesto(Repuesto r) {
-			repuestos.ModificarRepuesto(r);
+			datos.ModificarRepuesto(r);
+		}
+
+		public ObservableCollection<Proveedor> ListarProveedores() {
+			return datos.ListarProveedores();
+		}
+
+		public void AgregarProveedor(Proveedor p) {
+			datos.AgregarProveedor(p);
+		}
+
+		public void EliminarProveedor(Proveedor p) {
+			datos.EliminarProveedor(p);
+		}
+
+		public void ModificarProveedor(Proveedor p) {
+			datos.ModificarProveedor(p);
 		}
 	}
 }

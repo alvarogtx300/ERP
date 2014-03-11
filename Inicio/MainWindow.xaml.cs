@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repuestos.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,9 @@ namespace Inicio {
 		}
 
 		private void repuestos(object sender, RoutedEventArgs e) {
-			var vm = new Repuestos.ViewModels.PrincipalVM();
+			var facade = new FacadeRepuestos();
+
+			var vm = new Repuestos.ViewModels.PrincipalVM(facade.ListarProveedores(), facade.ListarRepuestos());
 			var view =new Repuestos.Views.Principal{
 				DataContext=vm
 			};
