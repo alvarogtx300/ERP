@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clientes.Logic {
-    class FacadeClientes {
+    public class FacadeClientes {
         IDAOClientes datos;
 
         public FacadeClientes() {
