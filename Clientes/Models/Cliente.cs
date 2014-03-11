@@ -12,7 +12,7 @@ namespace Clientes.Models {
 
         public string Nombre {
             get { return nombre; }
-            set { SetProperty(ref nombre,value,() => Nombre); }
+            set { SetProperty(ref nombre, value, () => Nombre); }
         }
 
         public string Apellidos {
@@ -33,6 +33,14 @@ namespace Clientes.Models {
         public long Telefono {
             get { return telefono; }
             set { SetProperty(ref telefono, value, () => Telefono); }
+        }
+
+        public override bool Equals(object obj) {
+            if (obj == null || GetType() != obj.GetType()) {
+                return false;
+            }
+
+            return this.dni==((Cliente)obj).dni;
         }
     }
 }

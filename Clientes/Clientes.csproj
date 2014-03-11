@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Logic\DatosClientes.cs" />
+    <Compile Include="Logic\FacadeClientes.cs" />
+    <Compile Include="Logic\IDAOClientes.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="ViewModels\ClienteVM.cs" />

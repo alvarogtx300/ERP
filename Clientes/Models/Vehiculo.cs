@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Clientes.Models {
     class Vehiculo : ObservableObject {
         string modelo, matricula;
-        Cliente relacionCliente
+        Cliente relacionCliente; 
 
         public string Modelo {
             get { return modelo; }
@@ -21,8 +21,16 @@ namespace Clientes.Models {
         }
 
         public Cliente RelacionCliente {
-            get { return matricula; }
-            set { SetProperty(ref matricula, value, () => Matricula); }
-        }  
+            get { return relacionCliente; }
+            set { SetProperty(ref relacionCliente, value, () => RelacionCliente); }
+        }
+
+        public override bool Equals(object obj) {
+            if (obj == null || GetType() != obj.GetType()) {
+                return false;
+            }
+
+            return this.matricula == ((Vehiculo)obj).matricula;
+        }
     }
 }
