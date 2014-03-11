@@ -1,4 +1,5 @@
 ﻿using Repuestos.Logic;
+using Clientes.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace Inicio {
 		}
 
 		private void clientes(object sender, RoutedEventArgs e) {
-			var vm = new Clientes.ViewModels.PrincipalVM();
+			var facade = new FacadeClientes();
+
+			var vm = new Clientes.ViewModels.PrincipalVM(facade.ListarClientes(), facade.ListarVehiculos());
 			var view = new Clientes.Views.Principal {
 				DataContext=vm
 			};
