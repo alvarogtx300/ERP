@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repuestos.ViewModels {
-	class ProveedorVM : ViewModelBase<Proveedor>{
+	public class ProveedorVM : ViewModelBase<Proveedor>{
 
 		public string Cif {
 			get { return Model.Cif; }

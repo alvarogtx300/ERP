@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repuestos.Models {
-	class Repuesto : ObservableObject{
+	public class Repuesto : ObservableObject{
 		private int codigo;
 		private string nombre;
 		private string descripcion;

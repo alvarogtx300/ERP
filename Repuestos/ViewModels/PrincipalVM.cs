@@ -13,6 +13,11 @@ namespace Repuestos.ViewModels {
 		private ObservableCollection<Proveedor> proveedores;
 		private ObservableCollection<Repuesto> repuestos;
 		private FacadeRepuestos facade;
+
+		public PrincipalVM(ObservableCollection<Proveedor> p, ObservableCollection<Repuesto> r) {
+			proveedores = p;
+			repuestos = r;
+		}
 		
 		public IEnumerable<ProveedorVM> Proveedores{
 			get {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repuestos.Logic {
-	class DatosRepuestos : IDAORepuestos{
+	public class DatosRepuestos : IDAORepuestos{
 		private static readonly Lazy<DatosRepuestos> instance = new Lazy<DatosRepuestos>(() => new DatosRepuestos());
 		private ObservableCollection<Repuesto> repuestos;
 		private ObservableCollection<Proveedor> proveedores;
