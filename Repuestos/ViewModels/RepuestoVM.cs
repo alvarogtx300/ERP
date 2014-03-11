@@ -19,9 +19,9 @@ namespace Repuestos.ViewModels {
 			set { Model.Nombre = value; }
 		}
 
-		public string Direccion {
-			get { return Model.Direccion; }
-			set { Model.Direccion = value; }
+		public string Descripcion {
+			get { return Model.Descripcion; }
+			set { Model.Descripcion = value; }
 		}
 
 		public double Precio {

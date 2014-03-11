@@ -52,6 +52,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\DatosRepuestos.cs" />
+    <Compile Include="Logic\FacadeRepuestos.cs" />
+    <Compile Include="Logic\IDAORepuestos.cs" />
     <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\Repuesto.cs" />
     <Compile Include="ViewModels\PrincipalVM.cs" />
