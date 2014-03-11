@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clientes.Models {
-    class Cliente : ObservableObject {
+    public class Cliente : ObservableObject {
         private string nombre, apellidos, dni, direccion;
         private long telefono;
 

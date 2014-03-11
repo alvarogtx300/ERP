@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clientes.Models {
-    class Vehiculo : ObservableObject {
+    public class Vehiculo : ObservableObject {
         string modelo, matricula;
         Cliente relacionCliente; 
 

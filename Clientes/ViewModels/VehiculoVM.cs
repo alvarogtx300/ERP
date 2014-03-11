@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Clientes.ViewModels {
-    class VehiculoVM : ViewModelBase<Vehiculo> {
+    public class VehiculoVM : ViewModelBase<Vehiculo> {
         public string Modelo {
             get { return Model.Modelo; }
             set { Model.Modelo=value; }
