@@ -19,6 +19,12 @@
         <Setter Property="CornerRadius" Value="3" />
     </Style>
     
+    <Style x:Key="CabeceraDialogo" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="0,0,0,2" />
+        <Setter Property="Background" Value="#F9F9F9" />
+        <Setter Property="BorderBrush" Value="#427FED" />
+    </Style>
+    
     <ResourceDictionary x:Key="TabItemBorder">
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">

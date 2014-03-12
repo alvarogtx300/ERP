@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Repuestos.ViewModels {
 	public class PrincipalVM : ViewModelBase{
@@ -28,6 +29,15 @@ namespace Repuestos.ViewModels {
 		public IEnumerable<RepuestoVM> Repuestos {
 			get {
 				return repuestos.Select(repuesto => new RepuestoVM { Model = repuesto });
+			}
+		}
+
+		ICommand agregar;
+		public ICommand Agregar {
+			get {
+				return agregar ?? (agregar = new RelayCommand(() => {
+					
+				}));
 			}
 		}
 	}

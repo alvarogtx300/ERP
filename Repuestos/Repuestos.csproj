@@ -60,9 +60,16 @@
     <Compile Include="ViewModels\PrincipalVM.cs" />
     <Compile Include="ViewModels\ProveedorVM.cs" />
     <Compile Include="ViewModels\RepuestoVM.cs" />
+    <Compile Include="Views\Dialogo Repuestos.xaml.cs">
+      <DependentUpon>Dialogo Repuestos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Dialogo Repuestos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Principal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
