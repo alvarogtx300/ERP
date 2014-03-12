@@ -1,6 +1,7 @@
 ﻿using Framework;
 using Repuestos.Logic;
 using Repuestos.Models;
+using Repuestos.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,7 +37,8 @@ namespace Repuestos.ViewModels {
 		public ICommand Agregar {
 			get {
 				return agregar ?? (agregar = new RelayCommand(() => {
-					
+					var view=new Dialogo();
+					view.Show();
 				}));
 			}
 		}

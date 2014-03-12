@@ -28,6 +28,7 @@
         <Setter Property="BorderThickness" Value="0,0,0,2" />
         <Setter Property="Background" Value="#F9F9F9" />
         <Setter Property="BorderBrush" Value="#427FED" />
+        <Setter Property="Height" Value="45" />
     </Style>
     
     <ResourceDictionary x:Key="TabItemBorder">
