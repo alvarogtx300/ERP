@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Clientes - Vehiculos" Height="480" Width="800"
         MinHeight="480" MinWidth="800" Margin="0" Padding="0">
+    
     <DockPanel>
         <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
@@ -52,9 +53,38 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Vehiculos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel Orientation="Vertical">
-                        
-                    </StackPanel>
+                    <ListBox Background="{x:Null}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource Tarjeta}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="100"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Modelo"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Matricula"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Dueño"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Modelo}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Matricula}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.DatosDuenio}" />
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem.Content>
             </TabItem>
         </TabControl>

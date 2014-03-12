@@ -16,6 +16,6 @@ namespace Clientes.ViewModels {
         public string Matricula {
             get { return Model.Matricula; }
             set { Model.Matricula=value; }
-        }  
+        }
     }
 }
