@@ -4,15 +4,43 @@
         Title="Clientes - Vehiculos" Height="480" Width="800"
         MinHeight="480" MinWidth="800" Margin="0" Padding="0">
     <DockPanel>
-        <TabControl BorderBrush="{x:Null}" Background="White" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">    
+        <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Style="{StaticResource TabItemText}" Text="Clientes" Margin="0,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock Style="{StaticResource TabItemText}" Text="Clientes" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel Orientation="Vertical">
-                        
-                    </StackPanel>
+                    <ListBox Background="{x:Null}" ItemsSource="{Binding Clientes}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="White" Margin="10" Padding="10" Width="356" CornerRadius="3">
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Nombre: "></TextBlock>
+                                            <TextBlock Text="{Binding Nombre}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Apellidos: "></TextBlock>
+                                            <TextBlock Text="{Binding Apellidos}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Direccion: "></TextBlock>
+                                            <TextBlock Text="{Binding Direccion}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Telefono: "></TextBlock>
+                                            <TextBlock Text="{Binding Telefono}"></TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
