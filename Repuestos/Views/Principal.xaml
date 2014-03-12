@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Repuestos - Proveedores" MinHeight="480" MinWidth="800" Height="480" Width="800">
     <DockPanel>
-        <TabControl BorderBrush="{x:Null}" Background="White" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
+        <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource TabItemText}" Text="Repuestos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox ItemsSource="{Binding Repuestos}" HorizontalContentAlignment="Stretch">
+                    <ListBox Background="{x:Null}" ItemsSource="{Binding Repuestos}" HorizontalContentAlignment="Stretch">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -17,7 +17,7 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border>
+                                <Border Style="{StaticResource Tarjeta}">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="150"/>
