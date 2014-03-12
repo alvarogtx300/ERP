@@ -25,6 +25,10 @@ namespace Clientes.Models {
             set { SetProperty(ref relacionCliente, value, () => RelacionCliente); }
         }
 
+        public string DatosDuenio {
+            get { return relacionCliente.Nombre+" "+relacionCliente.Apellidos; }
+        }
+
         public override bool Equals(object obj) {
             if (obj == null || GetType() != obj.GetType()) {
                 return false;

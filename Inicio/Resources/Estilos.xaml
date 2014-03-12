@@ -10,13 +10,18 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-    
-    <Style x:Key="Tarjeta" TargetType="Border">
+
+    <Style x:Key="Tarjeta" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="White" /> 
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Width" Value="356" />
         <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="NoWrap" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
     
     <Style x:Key="CabeceraDialogo" TargetType="{x:Type Border}">
