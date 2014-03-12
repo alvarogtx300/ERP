@@ -11,7 +11,7 @@
         </Style.Triggers>
     </Style>
     
-    <ResourceDictionary  x:Key="TabItemBorder">
+    <ResourceDictionary x:Key="TabItemBorder">
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -46,16 +46,16 @@
     </ResourceDictionary>
     
      <ControlTemplate x:Key="TabControlTemplate" TargetType="TabControl">
-                    <DockPanel SnapsToDevicePixels="true" ClipToBounds="true">
-                        <UniformGrid DockPanel.Dock="Top" Rows="1" IsItemsHost="True" Height="35" />
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                BorderBrush="{TemplateBinding BorderBrush}">
-                            <ContentPresenter Name="PART_SelectedContentHost" 
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                                              Margin="{TemplateBinding Padding}" 
-                                              ContentSource="SelectedContent" />
-                        </Border>
-                    </DockPanel>
-                </ControlTemplate>
+        <DockPanel SnapsToDevicePixels="true" ClipToBounds="true">
+            <UniformGrid DockPanel.Dock="Top" Rows="1" IsItemsHost="True" Height="35" />
+            <Border Background="{TemplateBinding Background}" 
+                    BorderThickness="0" 
+                    BorderBrush="{TemplateBinding BorderBrush}">
+                <ContentPresenter Name="PART_SelectedContentHost" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                    Margin="0" 
+                                    ContentSource="SelectedContent" />
+            </Border>
+        </DockPanel>
+    </ControlTemplate>
 </ResourceDictionary>
