@@ -18,7 +18,7 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Background="White" Margin="10" Padding="10" Width="356" CornerRadius="3">
+                                <Border Style="{StaticResource Tarjeta}">
                                     <StackPanel Orientation="Vertical">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Nombre: "></TextBlock>

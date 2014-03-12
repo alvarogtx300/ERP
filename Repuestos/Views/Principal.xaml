@@ -16,8 +16,8 @@
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
-                            <DataTemplate>ç
-                                <Border>
+                            <DataTemplate>
+                                <Border Style="{StaticResource Tarjeta}">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="150"/>
