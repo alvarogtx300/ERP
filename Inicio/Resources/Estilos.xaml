@@ -31,6 +31,17 @@
         <Setter Property="Height" Value="45" />
     </Style>
     
+    <Style x:Key="BotonDialogo" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#E5E5E5" />
+        <Setter Property="BorderThickness" Value="0,2,0,0" />
+        <Setter Property="BorderBrush" Value="#C7C7C7" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <ResourceDictionary x:Key="TabItemBorder">
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">
