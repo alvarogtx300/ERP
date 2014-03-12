@@ -52,6 +52,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DetalleCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Principal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,6 +68,9 @@
     <Compile Include="ViewModels\ClienteVM.cs" />
     <Compile Include="ViewModels\PrincipalVM.cs" />
     <Compile Include="ViewModels\VehiculoVM.cs" />
+    <Compile Include="Views\DetalleCliente.xaml.cs">
+      <DependentUpon>DetalleCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>

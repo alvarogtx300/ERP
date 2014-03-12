@@ -5,6 +5,14 @@
         MinHeight="480" MinWidth="800" Margin="0" Padding="0">
     
     <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Archivo">
+
+            </MenuItem>
+            <MenuItem Header="Agregar" />
+            <MenuItem Header="Modificar" />
+            <MenuItem Header="Eliminar" />
+        </Menu>
         <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
                 <TabItem.Header>
