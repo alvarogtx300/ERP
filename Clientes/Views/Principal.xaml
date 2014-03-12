@@ -9,7 +9,7 @@
             <MenuItem Header="_Archivo">
 
             </MenuItem>
-            <MenuItem Header="Agregar" />
+            <MenuItem Header="Agregar" Command="{Binding Agregar}" />
             <MenuItem Header="Modificar" />
             <MenuItem Header="Eliminar" />
         </Menu>

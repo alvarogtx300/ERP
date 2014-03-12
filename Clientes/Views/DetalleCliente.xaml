@@ -9,13 +9,12 @@
 
         <Grid DockPanel.Dock="Bottom" Height="45">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition />
                 <ColumnDefinition Width="1"/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Cancelar"></Button>
-            <Border Grid.Column="1" Background="#FFB2B2B2"></Border>
-            <Button Grid.Column="2" Content="Guardar"></Button>
+            <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" />
+            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" />
         </Grid>
 
         <Grid Margin="10">

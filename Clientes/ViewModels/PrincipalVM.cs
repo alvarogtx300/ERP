@@ -1,5 +1,6 @@
 ﻿using Clientes.Logic;
 using Clientes.Models;
+using Clientes.Views;
 using Framework;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Clientes.ViewModels {
     public class PrincipalVM : ViewModelBase {
@@ -29,6 +31,16 @@ namespace Clientes.ViewModels {
         public IEnumerable<VehiculoVM> Vehiculos {
             get {
                 return vehiculos.Select(vehiculo => new VehiculoVM { Model = vehiculo });
+            }
+        }
+
+        ICommand agregar;
+        public ICommand Agregar {
+            get {
+                return agregar ?? (agregar = new RelayCommand(() => {
+                    var view = new DetalleCliente();
+                    view.Show();
+                }));
             }
         }
     }
