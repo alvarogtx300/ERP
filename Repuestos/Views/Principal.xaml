@@ -16,7 +16,7 @@
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
-                            <DataTemplate>ç
+                            <DataTemplate>
                                 <Border>
                                     <Grid>
                                         <Grid.ColumnDefinitions>

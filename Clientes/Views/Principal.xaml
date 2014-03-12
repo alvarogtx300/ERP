@@ -13,30 +13,34 @@
                     <ListBox Background="{x:Null}" ItemsSource="{Binding Clientes}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" />
+                                <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Background="White" Margin="10" Padding="10" Width="356" CornerRadius="3">
-                                    <StackPanel Orientation="Vertical">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Nombre: "></TextBlock>
-                                            <TextBlock Text="{Binding Nombre}"></TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Apellidos: "></TextBlock>
-                                            <TextBlock Text="{Binding Apellidos}"></TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Direccion: "></TextBlock>
-                                            <TextBlock Text="{Binding Direccion}"></TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Telefono: "></TextBlock>
-                                            <TextBlock Text="{Binding Telefono}"></TextBlock>
-                                        </StackPanel>
-                                    </StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="100"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Apellidos"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Direccion"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Telefono"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Apellidos}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Direccion}"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Telefono}"/>
+
+                                    </Grid>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
