@@ -17,8 +17,8 @@ namespace Clientes.ViewModels {
         private ObservableCollection<Vehiculo> vehiculos;
 
         public PrincipalVM(ObservableCollection<Cliente> listaClientes, ObservableCollection<Vehiculo> listaVehiculos) {
-            clientes = new ObservableCollection<Cliente>(listaClientes);
-            vehiculos = new ObservableCollection<Vehiculo>(listaVehiculos); 
+            clientes = listaClientes;
+            vehiculos = listaVehiculos; 
             facade = new FacadeClientes();
         }
 
@@ -38,8 +38,16 @@ namespace Clientes.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    var view = new DetalleCliente();
-                    view.Show();
+					var vm = new ClienteVM {
+						Model = new Cliente()
+					};
+					var view = new DetalleCliente {
+						DataContext = vm
+					};
+					if (view.ShowDialog() == true) {
+						clientes.Add(vm.Model);
+						OnPropertyChanged("Clientes"); 
+					}
                 }));
             }
         }

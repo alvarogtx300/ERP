@@ -11,29 +11,61 @@
         </Style.Triggers>
     </Style>
 
+    <ControlTemplate x:Key="errorTemplate">
+        <Border>
+            <Grid>
+                <AdornedElementPlaceholder x:Name="_el" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <TextBlock Name="TheBGControl"><ContentPresenter /></TextBlock>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFD6D5D5" TargetName="TheBGControl" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="Tarjeta" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="White" /> 
+        <Setter Property="Background" Value="White" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Width" Value="350" />
         <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Style.Triggers>
+            <Trigger Property="Border.IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="#427FED" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="NoWrap" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
-    
+
     <Style x:Key="CabeceraDialogo" TargetType="{x:Type Border}">
         <Setter Property="BorderThickness" Value="0,0,0,2" />
         <Setter Property="Background" Value="#F9F9F9" />
         <Setter Property="BorderBrush" Value="#427FED" />
         <Setter Property="Height" Value="45" />
     </Style>
-    
+
     <Style x:Key="BotonDialogo" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="#F9F9F9" />
         <Setter Property="BorderThickness" Value="0,2,0,0" />
+        <Setter Property="BorderBrush" Value="#FFC7C7C7" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -47,13 +79,15 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="#427FED" />
+                <Setter Property="FontWeight" Value="Bold" />
             </Trigger>
-            <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="BorderBrush" Value="#FFC7C7C7" />
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="#A0A0A0" />
+                <Setter Property="Background" Value="#F0F0F0" />
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <ResourceDictionary x:Key="TabItemBorder">
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">
@@ -87,8 +121,8 @@
             </Setter>
         </Style>
     </ResourceDictionary>
-    
-     <ControlTemplate x:Key="TabControlTemplate" TargetType="TabControl">
+
+    <ControlTemplate x:Key="TabControlTemplate" TargetType="TabControl">
         <DockPanel SnapsToDevicePixels="true" ClipToBounds="true">
             <UniformGrid DockPanel.Dock="Top" Rows="1" IsItemsHost="True" Height="35" />
             <Border Background="{TemplateBinding Background}" 
