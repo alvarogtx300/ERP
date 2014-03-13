@@ -20,5 +20,15 @@ namespace Clientes.Views {
         public DetalleCliente() {
             InitializeComponent();
         }
+
+		private void Guardar(object sender, RoutedEventArgs e) {
+			DialogResult = true;
+			Close(); 
+		}
+
+		private void Cancelar(object sender, RoutedEventArgs e) {
+			DialogResult = false;
+			Close(); 
+		}
     }
 }

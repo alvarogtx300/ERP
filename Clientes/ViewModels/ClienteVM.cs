@@ -10,27 +10,60 @@ namespace Clientes.ViewModels {
     public class ClienteVM : ViewModelBase<Cliente> {
         public string Nombre {
             get { return Model.Nombre; }
-            set { Model.Nombre=value; }
-        }
-
-        public string Apellidos {
-            get { return Model.Apellidos; }
-            set { Model.Apellidos=value; }
+            set {
+				if (string.IsNullOrWhiteSpace(value)) {
+					Model.Nombre = value;
+					OnPropertyChanged("IsClientOk");
+					throw new ArgumentException("Debe escribir un nombre.");
+				}
+				else {
+					Model.Nombre = value;
+					OnPropertyChanged("IsClientOk");
+				}
+			}
         }
 
         public string Dni {
             get { return Model.Dni; }
-            set { Model.Dni=value; }
+			set {
+				if (string.IsNullOrWhiteSpace(value)) {
+					Model.Dni = value;
+					OnPropertyChanged("IsClientOk");
+					throw new ArgumentException("Debe escribir un dni.");
+				}
+				else {
+					Model.Dni = value;
+					OnPropertyChanged("IsClientOk");
+				}
+			}
         }
 
-        public string Direccion {
-            get { return Model.Direccion; }
-            set { Model.Direccion=value; }
+        public string Telefono {
+			get { return Model.Telefono==0 ? "" : Convert.ToString(Model.Telefono); }
+            set {
+				long num=0;
+				if (long.TryParse(value, out num))
+					if (num > 0) {
+						Model.Telefono = num;
+						OnPropertyChanged("IsClientOk");
+					}
+					else {
+						Model.Telefono = 0;
+						OnPropertyChanged("IsClientOk");
+						throw new ArgumentException("Telefono no valido.");
+					}
+				else {
+					Model.Telefono = 0;
+					OnPropertyChanged("IsClientOk");
+					throw new ArgumentException("Debe escribir un número.");
+				}
+			}
         }
 
-        public long Telefono {
-            get { return Model.Telefono; }
-            set { Model.Telefono=value; }
-        }
+		public bool IsClientOk {
+			get {
+				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Dni) && !string.IsNullOrWhiteSpace(Telefono);
+			}
+		}
     }
 }
