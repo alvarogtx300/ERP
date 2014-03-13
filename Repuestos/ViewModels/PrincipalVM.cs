@@ -63,18 +63,35 @@ namespace Repuestos.ViewModels {
 		public ICommand Agregar {
 			get {
 				return agregar ?? (agregar = new RelayCommand(() => {
-					var vm = new RepuestoVM {
-						Model = new Repuesto()
-					};
+					if (indexTab == 0) {
+						var vm = new RepuestoVM {
+							Model = new Repuesto()
+						};
 
-					var view = new DialogoRepuestos {
-						DataContext = vm,
-						Title="Agregar repuesto"
-					};
+						var view = new DialogoRepuestos {
+							DataContext = vm,
+							Title = "Agregar repuesto"
+						};
 
-					if (view.ShowDialog() == true) {
-						facade.AgregarRepuesto(vm.Model);
-						OnPropertyChanged("Repuestos");
+						if (view.ShowDialog() == true) {
+							facade.AgregarRepuesto(vm.Model);
+							OnPropertyChanged("Repuestos");
+						}
+					}
+					else {
+						var vm = new ProveedorVM {
+							Model = new Proveedor()
+						};
+
+						var view = new DialogoRepuestos {
+							DataContext = vm,
+							Title = "Agregar proveedor"
+						};
+
+						if (view.ShowDialog() == true) {
+							facade.AgregarProveedor(vm.Model);
+							OnPropertyChanged("Proveedores");
+						}
 					}
 				}));
 			}
