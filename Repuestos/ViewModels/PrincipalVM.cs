@@ -94,5 +94,15 @@ namespace Repuestos.ViewModels {
 				}));
 			}
 		}
+
+		ICommand eliminar;
+		public ICommand Eliminar {
+			get {
+				return eliminar ?? (eliminar = new RelayCommand<RepuestoVM>((repuesto) => {
+					facade.EliminarRepuesto(repuesto.Model);
+					OnPropertyChanged("Repuestos");
+				}));
+			}
+		}
 	}
 }
