@@ -27,6 +27,34 @@ namespace Repuestos.Logic {
 					Nombre="Amortiguador",
 					NumArticulos=3,
 					Precio=30
+				},
+				new Repuesto{
+					Codigo=2,
+					Descripcion="Pequeños",
+					Nombre="Amortiguador",
+					NumArticulos=3,
+					Precio=30
+				},
+				new Repuesto{
+					Codigo=2,
+					Descripcion="Pequeños",
+					Nombre="Amortiguador",
+					NumArticulos=3,
+					Precio=30
+				},
+				new Repuesto{
+					Codigo=2,
+					Descripcion="Pequeños",
+					Nombre="Amortiguador",
+					NumArticulos=3,
+					Precio=30
+				},
+				new Repuesto{
+					Codigo=2,
+					Descripcion="Pequeños",
+					Nombre="Amortiguador",
+					NumArticulos=3,
+					Precio=30
 				}
 			};
 

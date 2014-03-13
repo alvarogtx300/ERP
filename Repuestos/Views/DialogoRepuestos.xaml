@@ -1,4 +1,4 @@
-﻿<Window x:Class="Repuestos.Views.Dialogo"
+﻿<Window x:Class="Repuestos.Views.DialogoRepuestos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Agregar Repuesto" Height="293" Width="450">
@@ -13,8 +13,8 @@
                 <ColumnDefinition Width="1"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" />
-            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" />
+            <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" IsCancel="True"/>
+            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsDefault="True" Click="Guardar"/>
         </Grid>
         
         <Grid Margin="10">
@@ -37,11 +37,11 @@
             <TextBlock Grid.Column="0" Grid.Row="3" Text="Precio" VerticalAlignment="Center"/>
             <TextBlock Grid.Column="0" Grid.Row="4" Text="Stock" VerticalAlignment="Center"/>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Codigo}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Codigo, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Nombre}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Descripcion}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Precio}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NumArticulos}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Precio, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NumArticulos, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
         </Grid>
         
     </DockPanel>

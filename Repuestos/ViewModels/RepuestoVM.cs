@@ -9,9 +9,18 @@ using System.Threading.Tasks;
 namespace Repuestos.ViewModels {
 	public class RepuestoVM : ViewModelBase<Repuesto>{
 
-		public int Codigo {
-			get { return Model.Codigo; }
-			set { Model.Codigo = value; }
+		public string Codigo {
+			get { return Convert.ToString(Model.Codigo); }
+			set { 
+				int num;
+				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
+					if (num > 0)
+						Model.Codigo = num;
+					else
+						throw new ArgumentException("Debe ser un numero positivo");
+				else
+					throw new ArgumentException("Debe escribir un número");
+			}
 		}
 
 		public string Nombre {

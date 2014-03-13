@@ -19,6 +19,7 @@ namespace Repuestos.ViewModels {
 		public PrincipalVM(ObservableCollection<Proveedor> p, ObservableCollection<Repuesto> r) {
 			proveedores = p;
 			repuestos = r;
+			facade = new FacadeRepuestos();
 		}
 		
 		public IEnumerable<ProveedorVM> Proveedores{
@@ -37,8 +38,18 @@ namespace Repuestos.ViewModels {
 		public ICommand Agregar {
 			get {
 				return agregar ?? (agregar = new RelayCommand(() => {
-					var view=new Dialogo();
-					view.Show();
+					var vm = new RepuestoVM {
+						Model = new Repuesto()
+					};
+
+					var view = new DialogoRepuestos {
+						DataContext = vm
+					};
+
+					if (view.ShowDialog() == true) {
+						facade.AgregarRepuesto(vm.Model);
+						OnPropertyChanged("Repuestos");
+					}
 				}));
 			}
 		}

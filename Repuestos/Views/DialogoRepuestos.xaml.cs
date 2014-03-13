@@ -16,9 +16,14 @@ namespace Repuestos.Views {
 	/// <summary>
 	/// Lógica de interacción para Dialogo.xaml
 	/// </summary>
-	public partial class Dialogo : Window {
-		public Dialogo() {
+	public partial class DialogoRepuestos : Window {
+		public DialogoRepuestos() {
 			InitializeComponent();
+		}
+
+		private void Guardar(object sender, RoutedEventArgs e) {
+			DialogResult = true;
+			Close();
 		}
 	}
 }
