@@ -99,7 +99,8 @@ namespace Repuestos.ViewModels {
 
 		public bool IsOK {
 			get {
-				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Precio) && !string.IsNullOrWhiteSpace(Codigo) && !string.IsNullOrWhiteSpace(NumArticulos);
+				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Precio) && !string.IsNullOrWhiteSpace(Codigo) && 
+					!string.IsNullOrWhiteSpace(NumArticulos);
 			}
 		}
 	}
