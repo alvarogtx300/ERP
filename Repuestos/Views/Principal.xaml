@@ -8,8 +8,8 @@
                 
             </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}"/>
-            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem., ElementName=listbox}" />
-            <MenuItem Header="Eliminar" />
+            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem., ElementName=listbox}" IsEnabled="{Binding IsSelected}" />
+            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}"/>
         </Menu>
 
         <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
@@ -18,7 +18,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Repuestos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox x:Name="listbox" Background="{x:Null}" ItemsSource="{Binding Repuestos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox x:Name="listbox" SelectedIndex="{Binding IndexSelected}" Background="{x:Null}" ItemsSource="{Binding Repuestos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>

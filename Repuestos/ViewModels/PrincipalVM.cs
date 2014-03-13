@@ -34,6 +34,19 @@ namespace Repuestos.ViewModels {
 			}
 		}
 
+		private int index = -1;
+		public int IndexSelected {
+			get { return index; }
+			set { 
+				index = value; 
+				OnPropertyChanged("IsSelected"); 
+			}
+		}
+
+		public bool IsSelected {
+			get { return index > -1; }
+		}
+
 		ICommand agregar;
 		public ICommand Agregar {
 			get {
