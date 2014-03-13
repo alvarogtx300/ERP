@@ -1,7 +1,7 @@
-﻿<Window x:Class="Clientes.Views.VentanaWPF"
+﻿<Window x:Class="Clientes.Views.DetalleVehiculo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Height="325" Width="347">
+        Height="249" Width="347">
     
     <DockPanel>
         <Border Style="{StaticResource CabeceraDialogo}" DockPanel.Dock="Top">
@@ -15,13 +15,11 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" IsCancel="True" Click="Cancelar" />
-            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsEnabled="{Binding IsClientOk}" IsDefault="True" Click="Guardar" />
+            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsEnabled="{Binding IsOk}" IsDefault="True" Click="Guardar" />
         </Grid>
 
         <Grid Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="35"/>

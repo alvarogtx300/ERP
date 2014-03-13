@@ -52,8 +52,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\VentanaWPF.xaml.cs">
-      <DependentUpon>VentanaWPF.xaml</DependentUpon>
+    <Compile Include="Views\DetalleVehiculo.xaml.cs">
+      <DependentUpon>DetalleVehiculo.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\DetalleCliente.xaml">
       <SubType>Designer</SubType>
@@ -78,7 +78,7 @@
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\VentanaWPF.xaml">
+    <Page Include="Views\DetalleVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
