@@ -83,7 +83,7 @@ namespace Repuestos.ViewModels {
 							Model = new Proveedor()
 						};
 
-						var view = new DialogoRepuestos {
+						var view = new DialogoProveedores {
 							DataContext = vm,
 							Title = "Agregar proveedor"
 						};
