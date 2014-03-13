@@ -52,6 +52,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\DetalleVehiculoVM.cs" />
     <Compile Include="Views\DetalleVehiculo.xaml.cs">
       <DependentUpon>DetalleVehiculo.xaml</DependentUpon>
     </Compile>
