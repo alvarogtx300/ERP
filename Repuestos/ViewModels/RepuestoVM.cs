@@ -10,7 +10,7 @@ namespace Repuestos.ViewModels {
 	public class RepuestoVM : ViewModelBase<Repuesto>{
 
 		public string Codigo {
-			get { return Model.Codigo.ToString(); }
+			get { return Model.Codigo==0 ? "" : Model.Codigo.ToString(); }
 			set { 
 				int num;
 				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
@@ -38,22 +38,30 @@ namespace Repuestos.ViewModels {
 			set { Model.Descripcion = value; }
 		}
 
+		public string precio;
 		public string Precio {
-			get { return Model.Precio.ToString(); }
+			get {
+				precio = precio ?? Model.Precio.ToString("0.#0");
+				return precio=="0,00" ? "" : precio;
+			}
 			set {
 				double num;
-				if (!String.IsNullOrWhiteSpace(value) && double.TryParse(value, out num))
-					if (num > 0)
+				if (!String.IsNullOrWhiteSpace(value) && double.TryParse(value, out num)) {
+					num = Convert.ToDouble(value);
+					if (num > 0) {
+						precio = value;
 						Model.Precio = num;
+					}
 					else
 						throw new ArgumentException("Debe ser un numero positivo");
+				}
 				else
 					throw new ArgumentException("Debe escribir un número");
 			}
 		}
 
 		public string NumArticulos {
-			get { return Model.NumArticulos.ToString(); }
+			get { return Model.NumArticulos==0 ? "" : Model.NumArticulos.ToString(); }
 			set {
 				int num;
 				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
