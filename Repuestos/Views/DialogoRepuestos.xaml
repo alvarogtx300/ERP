@@ -39,7 +39,7 @@
 
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Codigo, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Nombre, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Descripcion}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model.Descripcion}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Precio, StringFormat='0.00', ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NumArticulos, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
         </Grid>

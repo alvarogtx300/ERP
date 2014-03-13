@@ -33,11 +33,6 @@ namespace Repuestos.ViewModels {
 			}
 		}
 
-		public string Descripcion {
-			get { return Model.Descripcion; }
-			set { Model.Descripcion = value; }
-		}
-
 		public string precio;
 		public string Precio {
 			get {
