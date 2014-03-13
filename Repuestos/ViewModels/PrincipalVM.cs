@@ -43,7 +43,8 @@ namespace Repuestos.ViewModels {
 					};
 
 					var view = new DialogoRepuestos {
-						DataContext = vm
+						DataContext = vm,
+						Title="Agregar repuesto"
 					};
 
 					if (view.ShowDialog() == true) {
