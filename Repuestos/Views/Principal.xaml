@@ -8,8 +8,8 @@
                 
             </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}"/>
-            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem., ElementName=listbox}" IsEnabled="{Binding IsSelected}" />
-            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}"/>
+            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem, ElementName=listbox}" IsEnabled="{Binding IsSelected}" />
+            <MenuItem Header="Eliminar" Command="{Binding Eliminar}" CommandParameter="{Binding SelectedItem, ElementName=listbox}" IsEnabled="{Binding IsSelected}"/>
         </Menu>
 
         <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
