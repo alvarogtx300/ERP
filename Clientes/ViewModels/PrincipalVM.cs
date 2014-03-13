@@ -37,27 +37,56 @@ namespace Clientes.ViewModels {
 		private int index=-1; 
 		public int IndexSelected {
 			get { return index; }
-			set { index = value; OnPropertyChanged("IsSelected"); }
+			set { 
+				index = value; 
+				OnPropertyChanged("IsSelected"); 
+			}
 		}
 
 		public bool IsSelected {
 			get { return index>-1; }
 		}
 
+		private int indexTab = 0;
+		public int IndexTab {
+			get { return indexTab; }
+			set { 
+				indexTab = value;
+				index = -1;
+				OnPropertyChanged("IndexSelected"); 
+				OnPropertyChanged("IsSelected"); 
+			}
+		}
+
         ICommand agregar;
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-					var vm = new ClienteVM {
-						Model = new Cliente()
-					};
-					var view = new DetalleCliente {
-						DataContext = vm, 
-						Title="Agregar Cliente"
-					};
-					if (view.ShowDialog() == true) {
-						facade.AgregarCliente(vm.Model); 
-						OnPropertyChanged("Clientes"); 
+					if (indexTab == 0) {
+						var vm = new ClienteVM {
+							Model = new Cliente()
+						};
+						var view = new DetalleCliente {
+							DataContext = vm,
+							Title = "Agregar Cliente"
+						};
+						if (view.ShowDialog() == true) {
+							facade.AgregarCliente(vm.Model);
+							OnPropertyChanged("Clientes");
+						}
+					}
+					else {
+						var vm = new VehiculoVM {
+							Model = new Vehiculo()
+						};
+						var view = new DetalleVehiculo {
+							DataContext = vm,
+							Title = "Agregar Vehiculo"
+						};
+						if (view.ShowDialog() == true) {
+							facade.AgregarVehiculo(vm.Model);
+							OnPropertyChanged("Vehiculos");
+						}
 					}
                 }));
             }
@@ -84,6 +113,16 @@ namespace Clientes.ViewModels {
 						facade.ModificarCliente(vm.Model); 
 						OnPropertyChanged("Clientes");
 					}
+				}));
+			}
+		}
+
+		ICommand eliminar;
+		public ICommand Eliminar {
+			get {
+				return eliminar ?? (eliminar = new RelayCommand<ClienteVM>((clienteVM) => {
+					facade.EliminarCliente(clienteVM.Model);
+					OnPropertyChanged("Clientes");
 				}));
 			}
 		}

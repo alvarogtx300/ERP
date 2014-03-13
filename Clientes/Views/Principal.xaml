@@ -12,9 +12,9 @@
             </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}" />
             <MenuItem Header="Modificar" IsEnabled="{Binding IsSelected}" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem,ElementName=listaClientes}" />
-            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" />
+            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" Command="{Binding Eliminar}" CommandParameter="{Binding SelectedItem,ElementName=listaClientes}" />
         </Menu>
-        <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
+        <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource TabItemText}" Text="Clientes" VerticalAlignment="Center" />
@@ -61,7 +61,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Vehiculos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox Background="{x:Null}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                    <ListBox Background="{x:Null}" SelectedIndex="{Binding IndexSelected}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
