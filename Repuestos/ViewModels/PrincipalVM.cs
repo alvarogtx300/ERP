@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Repuestos.ViewModels {
@@ -45,6 +46,17 @@ namespace Repuestos.ViewModels {
 
 		public bool IsSelected {
 			get { return index > -1; }
+		}
+
+		private int indexTab = 0;
+		public int IndexTab {
+			get { return indexTab; }
+			set {
+				indexTab = value;
+				index = -1;
+				OnPropertyChanged("IndexSelected");
+				OnPropertyChanged("IsSelected");
+			}
 		}
 
 		ICommand agregar;
@@ -99,8 +111,11 @@ namespace Repuestos.ViewModels {
 		public ICommand Eliminar {
 			get {
 				return eliminar ?? (eliminar = new RelayCommand<RepuestoVM>((repuesto) => {
-					facade.EliminarRepuesto(repuesto.Model);
-					OnPropertyChanged("Repuestos");
+					MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+					if (MessageBox.Show("¿Seguro que desea eliminar?", "Eliminar", btnMessageBox) == MessageBoxResult.Yes) {
+						facade.EliminarRepuesto(repuesto.Model);
+						OnPropertyChanged("Repuestos");
+					}
 				}));
 			}
 		}

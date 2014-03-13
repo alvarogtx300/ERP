@@ -8,17 +8,17 @@
                 
             </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}"/>
-            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem, ElementName=listbox}" IsEnabled="{Binding IsSelected}" />
-            <MenuItem Header="Eliminar" Command="{Binding Eliminar}" CommandParameter="{Binding SelectedItem, ElementName=listbox}" IsEnabled="{Binding IsSelected}"/>
+            <MenuItem Header="Modificar" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem, ElementName=listaRepuestos}" IsEnabled="{Binding IsSelected}" />
+            <MenuItem Header="Eliminar" Command="{Binding Eliminar}" CommandParameter="{Binding SelectedItem, ElementName=listaRepuestos}" IsEnabled="{Binding IsSelected}"/>
         </Menu>
 
-        <TabControl BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
+        <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}">
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource TabItemText}" Text="Repuestos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox x:Name="listbox" SelectedIndex="{Binding IndexSelected}" Background="{x:Null}" ItemsSource="{Binding Repuestos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox x:Name="listaRepuestos" SelectedIndex="{Binding IndexSelected}" Background="{x:Null}" ItemsSource="{Binding Repuestos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -63,7 +63,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Proveedores" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox Background="{x:Null}" ItemsSource="{Binding Proveedores}" HorizontalContentAlignment="Stretch">
+                    <ListBox x:Name="listaProveedores" SelectedIndex="{Binding IndexSelected}" Background="{x:Null}" ItemsSource="{Binding Proveedores}" HorizontalContentAlignment="Stretch">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
