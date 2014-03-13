@@ -16,9 +16,19 @@ namespace Clientes.Views {
 	/// <summary>
 	/// Lógica de interacción para VentanaWPF.xaml
 	/// </summary>
-	public partial class VentanaWPF : Window {
-		public VentanaWPF() {
+	public partial class DetalleVehiculo : Window {
+		public DetalleVehiculo() {
 			InitializeComponent();
+		}
+
+		private void Guardar(object sender, RoutedEventArgs e) {
+			DialogResult = true;
+			Close();
+		}
+
+		private void Cancelar(object sender, RoutedEventArgs e) {
+			DialogResult = false;
+			Close();
 		}
 	}
 }
