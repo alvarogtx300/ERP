@@ -26,6 +26,10 @@ namespace Clientes.Logic {
             datos.EliminarCliente(c);
         }
 
+		public void ModificarCliente(Cliente c) {
+			datos.ModificarCliente(c); 
+		}
+
         public void AgregarVehiculo(Vehiculo v) {
             datos.AgregarVehiculo(v);
         }
@@ -33,6 +37,10 @@ namespace Clientes.Logic {
         public void EliminarVehiculo(Vehiculo v) {
             datos.EliminarVehiculo(v);
         }
+
+		public void ModificarVehiculo(Vehiculo v) {
+			datos.ModificarVehiculo(v); 
+		}
 
         public ObservableCollection<Vehiculo> ListarVehiculos() {
             return datos.ListarVehiculos(); 

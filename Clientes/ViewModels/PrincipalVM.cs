@@ -34,6 +34,16 @@ namespace Clientes.ViewModels {
             }
         }
 
+		private int index=-1; 
+		public int IndexSelected {
+			get { return index; }
+			set { index = value; OnPropertyChanged("IsSelected"); }
+		}
+
+		public bool IsSelected {
+			get { return index>-1; }
+		}
+
         ICommand agregar;
         public ICommand Agregar {
             get {
@@ -42,14 +52,40 @@ namespace Clientes.ViewModels {
 						Model = new Cliente()
 					};
 					var view = new DetalleCliente {
-						DataContext = vm
+						DataContext = vm, 
+						Title="Agregar Cliente"
 					};
 					if (view.ShowDialog() == true) {
-						clientes.Add(vm.Model);
+						facade.AgregarCliente(vm.Model); 
 						OnPropertyChanged("Clientes"); 
 					}
                 }));
             }
         }
+
+		ICommand modificar;
+		public ICommand Modificar {
+			get {
+				return modificar ?? (modificar = new RelayCommand<ClienteVM>((cliente) => {
+					var vm = new ClienteVM {
+						Model = new Cliente {
+							Direccion=cliente.Model.Direccion,
+							Apellidos=cliente.Model.Apellidos
+						}, 
+						Dni=cliente.Dni,
+						Nombre=cliente.Nombre,
+						Telefono=cliente.Telefono
+					};
+					var view = new DetalleCliente {
+						DataContext = vm, 
+						Title="Modificar Cliente"
+					};
+					if (view.ShowDialog() == true) {
+						facade.ModificarCliente(vm.Model); 
+						OnPropertyChanged("Clientes");
+					}
+				}));
+			}
+		}
     }
 }
