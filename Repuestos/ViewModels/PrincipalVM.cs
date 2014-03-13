@@ -54,5 +54,32 @@ namespace Repuestos.ViewModels {
 				}));
 			}
 		}
+
+		ICommand modificar;
+		public ICommand Modificar {
+			get {
+				return modificar ?? (modificar = new RelayCommand<RepuestoVM>((repuesto) => {
+					var vm = new RepuestoVM {
+						Model = new Repuesto{
+							Descripcion=repuesto.Model.Descripcion
+						},
+						Nombre=repuesto.Nombre,
+						Codigo=repuesto.Codigo,
+						Precio=repuesto.Precio,
+						NumArticulos=repuesto.NumArticulos
+					};
+
+					var view = new DialogoRepuestos {
+						DataContext = vm,
+						Title = "Modificar repuesto"
+					};
+
+					if (view.ShowDialog() == true) {
+						facade.ModificarRepuesto(vm.Model);
+						OnPropertyChanged("Repuestos");
+					}
+				}));
+			}
+		}
 	}
 }
