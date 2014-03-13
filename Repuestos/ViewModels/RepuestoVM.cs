@@ -14,22 +14,35 @@ namespace Repuestos.ViewModels {
 			set { 
 				int num;
 				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
-					if (num > 0)
+					if (num > 0) {
 						Model.Codigo = num;
-					else
+						OnPropertyChanged("IsOK");
+					}
+					else {
+						Model.Codigo = 0;
+						OnPropertyChanged("IsOK");
 						throw new ArgumentException("Debe ser un numero positivo");
-				else
+					}
+				else {
+					Model.Codigo = 0;
+					OnPropertyChanged("IsOK");
 					throw new ArgumentException("Debe escribir un número");
+				}
 			}
 		}
 
 		public string Nombre {
 			get { return Model.Nombre; }
-			set { 
-				if(!string.IsNullOrWhiteSpace(value))
-					Model.Nombre = value; 
-				else
+			set {
+				if (!string.IsNullOrWhiteSpace(value)) {
+					Model.Nombre = value;
+					OnPropertyChanged("IsOK");
+				}
+				else {
+					Model.Nombre = value;
+					OnPropertyChanged("IsOK");
 					throw new ArgumentException("Debe escribir un nombre");
+				}
 			}
 		}
 
@@ -46,12 +59,19 @@ namespace Repuestos.ViewModels {
 					if (num > 0) {
 						precio = value;
 						Model.Precio = num;
+						OnPropertyChanged("IsOK");
 					}
-					else
+					else {
+						precio = "";
+						OnPropertyChanged("IsOK");
 						throw new ArgumentException("Debe ser un numero positivo");
+					}
 				}
-				else
+				else {
+					precio = "";
+					OnPropertyChanged("IsOK");
 					throw new ArgumentException("Debe escribir un número");
+				}
 			}
 		}
 
@@ -60,12 +80,26 @@ namespace Repuestos.ViewModels {
 			set {
 				int num;
 				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
-					if (num > 0)
+					if (num > 0) {
 						Model.NumArticulos = num;
-					else
+						OnPropertyChanged("IsOK");
+					}
+					else {
+						Model.NumArticulos = 0;
+						OnPropertyChanged("IsOK");
 						throw new ArgumentException("Debe ser un numero positivo");
-				else
+					}
+				else {
+					Model.NumArticulos = 0;
+					OnPropertyChanged("IsOK");
 					throw new ArgumentException("Debe escribir un número");
+				}
+			}
+		}
+
+		public bool IsOK {
+			get {
+				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Precio) && !string.IsNullOrWhiteSpace(Codigo) && !string.IsNullOrWhiteSpace(NumArticulos);
 			}
 		}
 	}

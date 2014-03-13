@@ -18,7 +18,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" IsCancel="True"/>
-            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsDefault="True" Click="Guardar"/>
+            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsDefault="True" IsEnabled="{Binding IsOK}" Click="Guardar"/>
         </Grid>
         
         <Grid Margin="10">
@@ -41,13 +41,13 @@
             <TextBlock Grid.Column="0" Grid.Row="3" Text="Precio" VerticalAlignment="Center"/>
             <TextBlock Grid.Column="0" Grid.Row="4" Text="Stock" VerticalAlignment="Center"/>
 
-            <TextBox x:Name="txCodigo" Grid.Column="1" Grid.Row="0" Text="{Binding Codigo, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" >
+            <TextBox x:Name="txCodigo" Grid.Column="1" Grid.Row="0" Text="{Binding Codigo, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center" >
                 
             </TextBox>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Nombre, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Nombre, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model.Descripcion}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Precio, StringFormat='0.00', ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NumArticulos, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Precio, StringFormat='0.00', ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NumArticulos, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center"/>
         </Grid>
         
     </DockPanel>
