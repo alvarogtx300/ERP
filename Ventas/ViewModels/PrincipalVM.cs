@@ -25,13 +25,15 @@ namespace Ventas.ViewModels {
         private ObservableCollection<Cliente> clientes;
         private ObservableCollection<Repuesto> repuestos;
         private ObservableCollection<Venta> ventas;
+        private Venta venta; 
 
         public PrincipalVM(ObservableCollection<Cliente> listaClientes, ObservableCollection<Repuesto> listaRespuestos, ObservableCollection<Venta> listaVentas) {
             clientes = listaClientes;
             repuestos = listaRespuestos;
             ventas = listaVentas; 
             facadeClientes = new FacadeClientes();
-            facadeRepuestos = new FacadeRepuestos(); 
+            facadeRepuestos = new FacadeRepuestos();
+            venta = new Venta(); 
         }
 
         public IEnumerable<ClienteVM> Clientes {
@@ -42,39 +44,51 @@ namespace Ventas.ViewModels {
             get { return ventas.Select(venta => new VentaVM { Model = venta }); }
         }
 
-        public IEnumerable<RepuestoVM> Vehiculos {
+        public IEnumerable<RepuestoVM> Repuestos {
             get { return repuestos.Select(repuesto => new RepuestoVM { Model = repuesto }); }
         }
 
-        private Object objetoSeleccionado;
-        public Object ObjetoSeleccionado {
-            get { return objetoSeleccionado; }
-			set { 
-				objetoSeleccionado = value;
-                OnPropertyChanged("IsSelected"); 
-			}
+        public VentaVM Venta {
+            get { return new VentaVM { Model = venta }; }
         }
 
-		public bool IsSelected {
-			get { return objetoSeleccionado != null; }
-		}
+        private int indexCombo=-1; 
+        public int IndexCombo {
+            get {
+                return indexCombo;
+            }
+            set {
+                indexCombo = value;
+            }
+        }
 
 		private int indexTab = 0;
 		public int IndexTab {
 			get { return indexTab; }
 			set { 
 				indexTab = value;
-				objetoSeleccionado=null;
-				OnPropertyChanged("ObjetoSeleccionado"); 
-				OnPropertyChanged("IsSelected"); 
+                indexCombo = -1;
 			}
 		}
+
+        private int cantidadRepuesto;
+        public int CantidadRepuesto {
+            get { return cantidadRepuesto; }
+            set {
+                cantidadRepuesto = value;
+            }
+        }
 
         ICommand agregar;
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-					
+                    venta.DetallesVentas.Add(
+                        new DetalleVenta {
+                            Cantidad=cantidadRepuesto,
+                            Repuesto=repuestos[indexCombo]
+                        }
+                    ); 
                 }));
             }
         }
