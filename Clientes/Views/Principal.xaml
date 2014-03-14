@@ -20,7 +20,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Clientes" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox x:Name="listaClientes" SelectedIndex="{Binding IndexSelected}" Background="{x:Null}" ItemsSource="{Binding Clientes}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                    <ListBox x:Name="listaClientes" SelectedItem="{Binding ObjetoSeleccionado}" Background="{x:Null}" ItemsSource="{Binding Clientes}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
@@ -61,7 +61,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Vehiculos" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox Background="{x:Null}" SelectedIndex="{Binding IndexSelected}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                    <ListBox Background="{x:Null}" SelectedItem="{Binding ObjetoSeleccionado}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />

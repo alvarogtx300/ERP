@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Clientes.ViewModels {
@@ -34,17 +35,17 @@ namespace Clientes.ViewModels {
             }
         }
 
-		private int index=-1; 
-		public int IndexSelected {
-			get { return index; }
+        private Object objetoSeleccionado;
+        public Object ObjetoSeleccionado {
+            get { return objetoSeleccionado; }
 			set { 
-				index = value; 
-				OnPropertyChanged("IsSelected"); 
+				objetoSeleccionado = value;
+                OnPropertyChanged("IsSelected"); 
 			}
-		}
+        }
 
 		public bool IsSelected {
-			get { return index>-1; }
+			get { return objetoSeleccionado != null; }
 		}
 
 		private int indexTab = 0;
@@ -52,8 +53,8 @@ namespace Clientes.ViewModels {
 			get { return indexTab; }
 			set { 
 				indexTab = value;
-				index = -1;
-				OnPropertyChanged("IndexSelected"); 
+				objetoSeleccionado=null;
+				OnPropertyChanged("ObjetoSeleccionado"); 
 				OnPropertyChanged("IsSelected"); 
 			}
 		}
