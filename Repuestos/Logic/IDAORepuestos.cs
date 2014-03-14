@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Repuestos.Logic {
 	interface IDAORepuestos {
 		 ObservableCollection<Repuesto> ListarRepuestos();
-		 void AgregarRepuesto(Repuesto r);
+		 bool AgregarRepuesto(Repuesto r);
 		 void EliminarRepuesto(Repuesto r);
 		 void ModificarRepuesto(Repuesto r);
 

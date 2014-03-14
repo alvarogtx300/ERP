@@ -35,17 +35,17 @@ namespace Repuestos.ViewModels {
 			}
 		}
 
-		private int index = -1;
-		public int IndexSelected {
-			get { return index; }
-			set { 
-				index = value; 
-				OnPropertyChanged("IsSelected"); 
+		private Object objetoSeleccionado;
+		public Object ObjetoSeleccionado {
+			get { return objetoSeleccionado; }
+			set {
+				objetoSeleccionado = value;
+				OnPropertyChanged("IsSelected");
 			}
 		}
 
 		public bool IsSelected {
-			get { return index > -1; }
+			get { return objetoSeleccionado != null; }
 		}
 
 		private int indexTab = 0;
@@ -53,8 +53,8 @@ namespace Repuestos.ViewModels {
 			get { return indexTab; }
 			set {
 				indexTab = value;
-				index = -1;
-				OnPropertyChanged("IndexSelected");
+				objetoSeleccionado = null;
+				OnPropertyChanged("ObjetoSeleccionado");
 				OnPropertyChanged("IsSelected");
 			}
 		}
@@ -68,15 +68,39 @@ namespace Repuestos.ViewModels {
 							Model = new Repuesto()
 						};
 
-						var view = new DialogoRepuestos {
-							DataContext = vm,
-							Title = "Agregar repuesto"
-						};
+						DialogoRepuestos view;
+						bool duplicado = true;
+						while (duplicado) {
+							vm.Model.Codigo = 0;
+							view = new DialogoRepuestos {
+								DataContext = vm,
+								Title = "Agregar repuesto"
+							};
+							if (view.ShowDialog() == true) {
+								if (facade.AgregarRepuesto(vm.Model)) {
+									duplicado = false;
+									OnPropertyChanged("Repuestos");
+								}
+								else
+									MessageBox.Show("Error, código de repuesto duplicado, cambialo", "Error");
+							}
+							else
+								duplicado = false;
+						}
 
-						if (view.ShowDialog() == true) {
+						/*do{
+							vm.Model.Codigo = 0;
+							view = new DialogoRepuestos {
+								DataContext = vm,
+								Title = "Agregar repuesto"
+							};
+							view.ShowDialog();
+						}while(view.DialogResult==true && !facade.AgregarRepuesto(vm.Model));
+						OnPropertyChanged("Repuestos");
+						/*if (view.ShowDialog() == true) {
 							facade.AgregarRepuesto(vm.Model);
 							OnPropertyChanged("Repuestos");
-						}
+						}*/
 					}
 					else {
 						var vm = new ProveedorVM {

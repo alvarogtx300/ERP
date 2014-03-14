@@ -20,9 +20,9 @@ namespace Repuestos.Logic {
 			return datos.ListarRepuestos();
 		}
 
-		public void AgregarRepuesto(Repuesto r)
+		public bool AgregarRepuesto(Repuesto r)
 		{
-			datos.AgregarRepuesto(r);
+			return datos.AgregarRepuesto(r);
 		}
 
 		public void EliminarRepuesto(Repuesto r)
