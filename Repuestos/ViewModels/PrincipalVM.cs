@@ -174,11 +174,18 @@ namespace Repuestos.ViewModels {
 		ICommand eliminar;
 		public ICommand Eliminar {
 			get {
-				return eliminar ?? (eliminar = new RelayCommand<RepuestoVM>((repuesto) => {
+				return eliminar ?? (eliminar = new RelayCommand(() => {
 					MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
 					if (MessageBox.Show("¿Seguro que desea eliminar?", "Eliminar", btnMessageBox) == MessageBoxResult.Yes) {
-						facade.EliminarRepuesto(repuesto.Model);
-						OnPropertyChanged("Repuestos");
+						if (objetoSeleccionado is RepuestoVM) {
+							facade.EliminarRepuesto(((RepuestoVM)objetoSeleccionado).Model);
+							OnPropertyChanged("Repuestos");
+						}
+						else if (objetoSeleccionado is ProveedorVM) {
+							facade.EliminarProveedor(((ProveedorVM)objetoSeleccionado).Model);
+							OnPropertyChanged("Proveedores");
+						}
+						
 					}
 				}));
 			}
