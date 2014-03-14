@@ -51,7 +51,7 @@ namespace Inicio {
             var facadeVentas = new FacadeVentas(); 
 
             var vm = new Ventas.ViewModels.PrincipalVM(facadeClientes.ListarClientes(),facadeRespuestos.ListarRepuestos(),facadeVentas.ListarVentas());
-            var view = new Repuestos.Views.Principal {
+            var view = new Ventas.Views.Principal {
                 DataContext = vm
             };
             view.Show();

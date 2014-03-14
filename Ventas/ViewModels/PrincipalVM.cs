@@ -1,9 +1,11 @@
 ﻿using Clientes.Logic;
 using Clientes.Models;
+using Clientes.ViewModels;
 using Clientes.Views;
 using Framework;
 using Repuestos.Logic;
 using Repuestos.Models;
+using Repuestos.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +32,18 @@ namespace Ventas.ViewModels {
             ventas = listaVentas; 
             facadeClientes = new FacadeClientes();
             facadeRepuestos = new FacadeRepuestos(); 
+        }
+
+        public IEnumerable<ClienteVM> Clientes {
+            get { return clientes.Select(cliente => new ClienteVM { Model = cliente }); }
+        }
+
+        public IEnumerable<VentaVM> Ventas {
+            get { return ventas.Select(venta => new VentaVM { Model = venta }); }
+        }
+
+        public IEnumerable<RepuestoVM> Vehiculos {
+            get { return repuestos.Select(repuesto => new RepuestoVM { Model = repuesto }); }
         }
 
         private Object objetoSeleccionado;
