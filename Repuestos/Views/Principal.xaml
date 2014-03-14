@@ -88,7 +88,7 @@
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Descripcion"/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Cif}"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Descripcion}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Descripcion}"/>
                                     </Grid>
                                 </Border>
                             </DataTemplate>

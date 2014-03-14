@@ -11,17 +11,38 @@ namespace Repuestos.ViewModels {
 
 		public string Cif {
 			get { return Model.Cif; }
-			set { Model.Cif = value; }
+			set {
+				if (!string.IsNullOrWhiteSpace(value)) {
+					Model.Cif = value;
+					OnPropertyChanged("IsOK");
+				}
+				else {
+					Model.Cif = value;
+					OnPropertyChanged("IsOK");
+					throw new ArgumentException("Debe escribir un CIF");
+				}
+			}
 		}
 
 		public string Nombre {
 			get { return Model.Nombre; }
-			set { Model.Nombre = value; }
+			set {
+				if (!string.IsNullOrWhiteSpace(value)) {
+					Model.Nombre = value;
+					OnPropertyChanged("IsOK");
+				}
+				else {
+					Model.Nombre = value;
+					OnPropertyChanged("IsOK");
+					throw new ArgumentException("Debe escribir un nombre");
+				}
+			}
 		}
 
-		public string Descripccion {
-			get { return Model.Descripccion; }
-			set { Model.Descripccion = value; }
+		public bool IsOK {
+			get {
+				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Cif);
+			}
 		}
 	}
 }

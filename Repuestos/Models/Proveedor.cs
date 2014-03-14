@@ -21,9 +21,9 @@ namespace Repuestos.Models {
 			set { SetProperty(ref nombre, value, () => Nombre); }
 		}
 
-		public string Descripccion {
+		public string Descripcion {
 			get { return descripcion; }
-			set { SetProperty(ref descripcion, value, () => Descripccion); }
+			set { SetProperty(ref descripcion, value, () => Descripcion); }
 		}
 
 		public override bool Equals(object obj) {

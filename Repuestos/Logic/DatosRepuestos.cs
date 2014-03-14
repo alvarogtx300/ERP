@@ -61,7 +61,7 @@ namespace Repuestos.Logic {
 			proveedores = new ObservableCollection<Proveedor> {
 				new Proveedor{
 					Cif="04555784A",
-					Descripccion="Ruedas Juan",
+					Descripcion="Ruedas Juan",
 					Nombre="Juan S.L."
 				}
 			};
@@ -108,7 +108,7 @@ namespace Repuestos.Logic {
 			Proveedor proveedor = proveedores[proveedores.IndexOf(p)];
 
 			proveedor.Nombre = p.Nombre;
-			proveedor.Descripccion = p.Descripccion;
+			proveedor.Descripcion = p.Descripcion;
 		}
 		
 	}
