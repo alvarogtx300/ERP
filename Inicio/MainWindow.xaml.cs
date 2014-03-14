@@ -44,10 +44,12 @@ namespace Inicio {
 			view.Show();
 		}
 
-        private void repuestos(object sender, RoutedEventArgs e) {
-            var facade = new FacadeRepuestos();
+        private void ventas(object sender, RoutedEventArgs e) {
+            var facadeClientes = new FacadeClientes();
+            var facadeRespuestos = new FacadeRepuestos();
+            var facadeVentas = new FacadeVentas(); 
 
-            var vm = new Repuestos.ViewModels.PrincipalVM(facade.ListarProveedores(), facade.ListarRepuestos());
+            var vm = new Ventas.ViewModels.PrincipalVM(facadeClientes.ListarClientes(),facadeVentas);
             var view = new Repuestos.Views.Principal {
                 DataContext = vm
             };
