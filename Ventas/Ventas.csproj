@@ -55,6 +55,7 @@
     <Compile Include="Logic\DatosVentas.cs" />
     <Compile Include="Logic\IDAOVentas.cs" />
     <Compile Include="Logic\FacadeVentas.cs" />
+    <Compile Include="Models\DetalleVenta.cs" />
     <Compile Include="Models\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
