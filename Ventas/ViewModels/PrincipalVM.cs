@@ -62,6 +62,19 @@ namespace Ventas.ViewModels {
             }
         }
 
+        private int indexComboClientes = -1;
+        public int IndexComboClientes {
+            get {
+                return indexComboClientes;
+            }
+            set {
+                indexComboClientes = value;
+                venta.DetallesVentas.Clear(); 
+                indexCombo = -1;
+                OnPropertyChanged("IndexCombo");
+            }
+        }
+
 		private int indexTab = 0;
 		public int IndexTab {
 			get { return indexTab; }
@@ -76,7 +89,12 @@ namespace Ventas.ViewModels {
             get { return cantidadRepuesto; }
             set {
                 cantidadRepuesto = value;
+                OnPropertyChanged("IsOk");
             }
+        }
+
+        public bool IsOk {
+            get { return cantidadRepuesto > 0 && indexCombo >= 0 && indexComboClientes >= 0; }
         }
 
         ICommand agregar;
@@ -85,10 +103,10 @@ namespace Ventas.ViewModels {
                 return agregar ?? (agregar = new RelayCommand(() => {
                     venta.DetallesVentas.Add(
                         new DetalleVenta {
-                            Cantidad=cantidadRepuesto,
-                            Repuesto=repuestos[indexCombo]
+                            Cantidad = cantidadRepuesto,
+                            Repuesto = repuestos[indexCombo]
                         }
-                    ); 
+                    );
                 }));
             }
         }
