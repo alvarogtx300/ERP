@@ -19,8 +19,8 @@ namespace Ventas.Logic {
             return datos.ListarVentas();
         }
 
-        public void AgregarVenta() {
-            datos.AgregarVenta(); 
+        public void AgregarVenta(Venta v) {
+            datos.AgregarVenta(v); 
         }
     }
 }
