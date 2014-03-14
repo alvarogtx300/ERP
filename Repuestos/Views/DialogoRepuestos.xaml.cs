@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repuestos.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,12 @@ namespace Repuestos.Views {
 	public partial class DialogoRepuestos : Window {
 		public DialogoRepuestos() {
 			InitializeComponent();
+			Loaded += new RoutedEventHandler(MainWindow_Loaded);
+		}
+
+		void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+			if(((RepuestoVM)DataContext).Codigo!="")
+				txCodigo.IsEnabled = false;
 		}
 
 		private void Guardar(object sender, RoutedEventArgs e) {

@@ -113,7 +113,7 @@ namespace Repuestos.ViewModels {
 
 					var view = new DialogoRepuestos {
 						DataContext = vm,
-						Title = "Modificar repuesto"
+						Title = "Modificar repuesto"						
 					};
 
 					if (view.ShowDialog() == true) {
