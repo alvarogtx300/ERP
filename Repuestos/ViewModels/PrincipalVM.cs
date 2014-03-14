@@ -110,25 +110,48 @@ namespace Repuestos.ViewModels {
 		ICommand modificar;
 		public ICommand Modificar {
 			get {
-				return modificar ?? (modificar = new RelayCommand<RepuestoVM>((repuesto) => {
-					var vm = new RepuestoVM {
-						Model = new Repuesto{
-							Descripcion=repuesto.Model.Descripcion
-						},
-						Nombre=repuesto.Nombre,
-						Codigo=repuesto.Codigo,
-						Precio=repuesto.Precio,
-						NumArticulos=repuesto.NumArticulos
-					};
+				return modificar ?? (modificar = new RelayCommand(() => {
+					if (objetoSeleccionado is RepuestoVM) {
+						RepuestoVM repuesto = (RepuestoVM)objetoSeleccionado;
+						var vm = new RepuestoVM {
+							Model = new Repuesto{
+								Descripcion=repuesto.Model.Descripcion
+							},
+							Nombre=repuesto.Nombre,
+							Codigo=repuesto.Codigo,
+							Precio=repuesto.Precio,
+							NumArticulos=repuesto.NumArticulos
+						};
 
-					var view = new DialogoRepuestos {
-						DataContext = vm,
-						Title = "Modificar repuesto"						
-					};
+						var view = new DialogoRepuestos {
+							DataContext = vm,
+							Title = "Modificar repuesto"						
+						};
 
-					if (view.ShowDialog() == true) {
-						facade.ModificarRepuesto(vm.Model);
-						OnPropertyChanged("Repuestos");
+						if (view.ShowDialog() == true) {
+							facade.ModificarRepuesto(vm.Model);
+							OnPropertyChanged("Repuestos");
+						}
+					}
+					else if (objetoSeleccionado is ProveedorVM) {
+						ProveedorVM proveedor = (ProveedorVM)objetoSeleccionado;
+						var vm = new ProveedorVM {
+							Model = new Proveedor {
+								Descripcion = proveedor.Model.Descripcion
+							},
+							Nombre = proveedor.Nombre,
+							Cif=proveedor.Cif
+						};
+
+						var view = new DialogoProveedores {
+							DataContext = vm,
+							Title = "Modificar proveedor"
+						};
+
+						if (view.ShowDialog() == true) {
+							facade.ModificarProveedor(vm.Model);
+							OnPropertyChanged("Proveedores");
+						}
 					}
 				}));
 			}
@@ -137,11 +160,18 @@ namespace Repuestos.ViewModels {
 		ICommand eliminar;
 		public ICommand Eliminar {
 			get {
-				return eliminar ?? (eliminar = new RelayCommand<RepuestoVM>((repuesto) => {
+				return eliminar ?? (eliminar = new RelayCommand(() => {
 					MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
 					if (MessageBox.Show("¿Seguro que desea eliminar?", "Eliminar", btnMessageBox) == MessageBoxResult.Yes) {
-						facade.EliminarRepuesto(repuesto.Model);
-						OnPropertyChanged("Repuestos");
+						if (objetoSeleccionado is RepuestoVM) {
+							facade.EliminarRepuesto(((RepuestoVM)objetoSeleccionado).Model);
+							OnPropertyChanged("Repuestos");
+						}
+						else if (objetoSeleccionado is ProveedorVM) {
+							facade.EliminarProveedor(((ProveedorVM)objetoSeleccionado).Model);
+							OnPropertyChanged("Proveedores");
+						}
+						
 					}
 				}));
 			}
