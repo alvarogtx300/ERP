@@ -38,8 +38,8 @@ namespace Repuestos.Logic {
 			return datos.ListarProveedores();
 		}
 
-		public void AgregarProveedor(Proveedor p) {
-			datos.AgregarProveedor(p);
+		public bool AgregarProveedor(Proveedor p) {
+			return datos.AgregarProveedor(p);
 		}
 
 		public void EliminarProveedor(Proveedor p) {

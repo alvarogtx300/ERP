@@ -14,7 +14,7 @@ namespace Repuestos.Logic {
 		 void ModificarRepuesto(Repuesto r);
 
 		 ObservableCollection<Proveedor> ListarProveedores();
-		 void AgregarProveedor(Proveedor p);
+		 bool AgregarProveedor(Proveedor p);
 		 void EliminarProveedor(Proveedor p);
 		 void ModificarProveedor(Proveedor p);
 	}
