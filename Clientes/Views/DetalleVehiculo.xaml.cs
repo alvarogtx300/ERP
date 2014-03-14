@@ -24,7 +24,7 @@ namespace Clientes.Views {
 		}
 
 		void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-			if (((VehiculoVM)DataContext).Matricula != null)
+			if (((DetalleVehiculoVM)DataContext).Model.Matricula != null)
 				txMatricula.IsEnabled = false;
 		}
 	}
