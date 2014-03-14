@@ -33,7 +33,7 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Nombre" VerticalAlignment="Center"/>
             <TextBlock Grid.Column="0" Grid.Row="2" Text="Descripcion" VerticalAlignment="Center"/>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Cif, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center" />
+            <TextBox x:Name="txCif" Grid.Column="1" Grid.Row="0" Text="{Binding Cif, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center" />
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Nombre, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource errorTemplate}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model.Descripcion}" VerticalAlignment="Center"/>
         </Grid>

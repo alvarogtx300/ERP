@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clientes.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,13 @@ namespace Clientes.Views {
     public partial class DetalleCliente : Window {
         public DetalleCliente() {
             InitializeComponent();
+			Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
+
+		void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+			if (((ClienteVM)DataContext).Dni != null)
+				txDni.IsEnabled = false;
+		}
 
 		private void Guardar(object sender, RoutedEventArgs e) {
 			DialogResult = true;
