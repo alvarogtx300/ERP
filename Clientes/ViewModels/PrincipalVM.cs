@@ -24,15 +24,11 @@ namespace Clientes.ViewModels {
         }
 
         public IEnumerable<ClienteVM> Clientes {
-            get {
-                return clientes.Select(cliente => new ClienteVM { Model = cliente });
-            }
+            get { return clientes.Select(cliente => new ClienteVM { Model = cliente }); }
         }
 
         public IEnumerable<VehiculoVM> Vehiculos {
-            get {
-                return vehiculos.Select(vehiculo => new VehiculoVM { Model = vehiculo });
-            }
+            get { return vehiculos.Select(vehiculo => new VehiculoVM { Model = vehiculo }); }
         }
 
         private Object objetoSeleccionado;
@@ -121,7 +117,14 @@ namespace Clientes.ViewModels {
                     }
                     else if (objetoSeleccionado is VehiculoVM) {
                         VehiculoVM vehiculo = (VehiculoVM)objetoSeleccionado;
-                        var vm = new DetalleVehiculoVM(vehiculo, clientes); 
+                        var vm = new DetalleVehiculoVM(
+                            new VehiculoVM {
+                                Model=new Vehiculo {
+                                    RelacionCliente=vehiculo.Model.RelacionCliente
+                                },
+                                Matricula=vehiculo.Matricula,
+                                Modelo=vehiculo.Modelo,
+                            }, clientes); 
 
                         var view = new DetalleVehiculo {
                             DataContext = vm,
@@ -140,13 +143,16 @@ namespace Clientes.ViewModels {
 		public ICommand Eliminar {
 			get {
 				return eliminar ?? (eliminar = new RelayCommand(() => {
-                    if (objetoSeleccionado is ClienteVM) {
-                        facade.EliminarCliente(((ClienteVM)objetoSeleccionado).Model);
-                        OnPropertyChanged("Clientes");
-                    }
-                    else if (objetoSeleccionado is VehiculoVM) {
-                        facade.EliminarVehiculo(((VehiculoVM)objetoSeleccionado).Model);
-                        OnPropertyChanged("Vehiculos"); 
+                    MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+                    if (MessageBox.Show("¿Seguro que desea eliminar?", "Eliminar", btnMessageBox) == MessageBoxResult.Yes) {
+                        if (objetoSeleccionado is ClienteVM) {
+                            facade.EliminarCliente(((ClienteVM)objetoSeleccionado).Model);
+                            OnPropertyChanged("Clientes");
+                        }
+                        else if (objetoSeleccionado is VehiculoVM) {
+                            facade.EliminarVehiculo(((VehiculoVM)objetoSeleccionado).Model);
+                            OnPropertyChanged("Vehiculos");
+                        }
                     }
 				}));
 			}

@@ -82,25 +82,11 @@ namespace Repuestos.ViewModels {
 									OnPropertyChanged("Repuestos");
 								}
 								else
-									MessageBox.Show("Error, código de repuesto duplicado, cambialo", "Error");
+									MessageBox.Show("Error, código de repuesto duplicado", "Error");
 							}
 							else
 								duplicado = false;
 						}
-
-						/*do{
-							vm.Model.Codigo = 0;
-							view = new DialogoRepuestos {
-								DataContext = vm,
-								Title = "Agregar repuesto"
-							};
-							view.ShowDialog();
-						}while(view.DialogResult==true && !facade.AgregarRepuesto(vm.Model));
-						OnPropertyChanged("Repuestos");
-						/*if (view.ShowDialog() == true) {
-							facade.AgregarRepuesto(vm.Model);
-							OnPropertyChanged("Repuestos");
-						}*/
 					}
 					else {
 						var vm = new ProveedorVM {
