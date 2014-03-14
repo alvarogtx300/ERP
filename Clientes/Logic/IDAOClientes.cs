@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace Clientes.Logic {
     interface IDAOClientes {
         ObservableCollection<Cliente> ListarClientes();
-        void AgregarCliente(Cliente c);
+        bool AgregarCliente(Cliente c);
         void EliminarCliente(Cliente c);
         void ModificarCliente(Cliente c);
 
         ObservableCollection<Vehiculo> ListarVehiculos();
-        void AgregarVehiculo(Vehiculo c);
+        bool AgregarVehiculo(Vehiculo c);
         void ModificarVehiculo(Vehiculo c);
         void EliminarVehiculo(Vehiculo c);
     }

@@ -63,13 +63,25 @@ namespace Clientes.ViewModels {
 						var vm = new ClienteVM {
 							Model = new Cliente()
 						};
-						var view = new DetalleCliente {
-							DataContext = vm,
-							Title = "Agregar Cliente"
-						};
-						if (view.ShowDialog() == true) {
-							facade.AgregarCliente(vm.Model);
-							OnPropertyChanged("Clientes");
+
+						DetalleCliente view;
+						bool duplicado = true;
+						while (duplicado) {
+							vm.Model.Dni = null;
+							view = new DetalleCliente {
+								DataContext = vm,
+								Title = "Agregar cliente"
+							};
+							if (view.ShowDialog() == true) {
+								if (facade.AgregarCliente(vm.Model)) {
+									duplicado = false;
+									OnPropertyChanged("Clientes");
+								}
+								else
+									MessageBox.Show("Error, DNI duplicado", "Error");
+							}
+							else
+								duplicado = false;
 						}
 					}
 					else if(indexTab==1) {
@@ -78,13 +90,25 @@ namespace Clientes.ViewModels {
                                 Model = new Vehiculo()
                             }, clientes
                         ); 
-						var view = new DetalleVehiculo {
-							DataContext = vm,
-							Title = "Agregar Vehiculo"
-						};
-						if (view.ShowDialog() == true) {
-							facade.AgregarVehiculo(vm.Model.Model);
-							OnPropertyChanged("Vehiculos");
+
+						DetalleVehiculo view;
+						bool duplicado = true;
+						while (duplicado) {
+							vm.Model.Model.Matricula = null;
+							view = new DetalleVehiculo {
+								DataContext = vm,
+								Title = "Agregar vehiculo"
+							};
+							if (view.ShowDialog() == true) {
+								if (facade.AgregarVehiculo(vm.Model.Model)) {
+									duplicado = false;
+									OnPropertyChanged("Vehiculos");
+								}
+								else
+									MessageBox.Show("Error, matrícula duplicada", "Error");
+							}
+							else
+								duplicado = false;
 						}
 					}
                 }));
