@@ -11,11 +11,13 @@
         <Grid DockPanel.Dock="Bottom" Height="45">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" IsCancel="True" Click="Cancelar" />
-            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsEnabled="{Binding IsOk}" IsDefault="True" Click="Guardar" />
+            <Button Grid.Column="0" Style="{StaticResource BotonDialogo}" Content="Cancelar" IsCancel="True" />
+            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" IsEnabled="{Binding Model.IsOk}" IsDefault="True" 
+                    Command="{Binding Guardar}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
         </Grid>
 
         <Grid Margin="10">
@@ -34,9 +36,11 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Matricula " VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="2" Text="Dueño " VerticalAlignment="Center"></TextBlock>
 
-            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Modelo,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox x:Name="txMatricula" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Matricula,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Duenio.Nombre,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Modelo,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox x:Name="txMatricula" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Matricula,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+            <ComboBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" 
+                      ItemsSource="{Binding ListaClientes}" DisplayMemberPath="Datos"
+                      SelectedIndex="{Binding IndexCombo}"/>
         </Grid>
     </DockPanel>
 </Window>

@@ -60,6 +60,10 @@ namespace Clientes.ViewModels {
 			}
         }
 
+        public string Datos {
+            get { return Nombre +" "+ Model.Apellidos; }
+        }
+
 		public bool IsClientOk {
 			get {
 				return !string.IsNullOrWhiteSpace(Nombre) && !string.IsNullOrWhiteSpace(Dni) && !string.IsNullOrWhiteSpace(Telefono);

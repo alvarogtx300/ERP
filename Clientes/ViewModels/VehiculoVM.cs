@@ -38,6 +38,10 @@ namespace Clientes.ViewModels {
 			}
         }
 
+        public string DatosDuenio {
+            get { return Model.RelacionCliente.Nombre + " " + Model.RelacionCliente.Apellidos; }
+        }
+
 		public bool IsOk {
 			get {
 				return !string.IsNullOrWhiteSpace(Modelo) && !string.IsNullOrWhiteSpace(Matricula);

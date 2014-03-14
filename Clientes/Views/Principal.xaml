@@ -11,8 +11,8 @@
 
             </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}" />
-            <MenuItem Header="Modificar" IsEnabled="{Binding IsSelected}" Command="{Binding Modificar}" CommandParameter="{Binding SelectedItem,ElementName=listaClientes}" />
-            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" Command="{Binding Eliminar}" CommandParameter="{Binding SelectedItem,ElementName=listaClientes}" />
+            <MenuItem Header="Modificar" IsEnabled="{Binding IsSelected}" Command="{Binding Modificar}" />
+            <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" Command="{Binding Eliminar}" />
         </Menu>
         <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
@@ -86,7 +86,7 @@
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Dueño"/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Modelo}"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Matricula}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.DatosDuenio}" />
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding DatosDuenio}" />
 
                                     </Grid>
                                 </Border>

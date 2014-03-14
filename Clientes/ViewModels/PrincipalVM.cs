@@ -63,7 +63,7 @@ namespace Clientes.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-					if (indexTab == 0) {
+					if (indexTab==0) {
 						var vm = new ClienteVM {
 							Model = new Cliente()
 						};
@@ -76,16 +76,18 @@ namespace Clientes.ViewModels {
 							OnPropertyChanged("Clientes");
 						}
 					}
-					else {
-						var vm = new VehiculoVM {
-							Model = new Vehiculo()
-						};
+					else if(indexTab==1) {
+                        var vm = new DetalleVehiculoVM(
+                            new VehiculoVM {
+                                Model = new Vehiculo()
+                            }, clientes
+                        ); 
 						var view = new DetalleVehiculo {
 							DataContext = vm,
 							Title = "Agregar Vehiculo"
 						};
 						if (view.ShowDialog() == true) {
-							facade.AgregarVehiculo(vm.Model);
+							facade.AgregarVehiculo(vm.Model.Model);
 							OnPropertyChanged("Vehiculos");
 						}
 					}
@@ -96,24 +98,40 @@ namespace Clientes.ViewModels {
 		ICommand modificar;
 		public ICommand Modificar {
 			get {
-				return modificar ?? (modificar = new RelayCommand<ClienteVM>((cliente) => {
-					var vm = new ClienteVM {
-						Model = new Cliente {
-							Direccion=cliente.Model.Direccion,
-							Apellidos=cliente.Model.Apellidos
-						}, 
-						Dni=cliente.Dni,
-						Nombre=cliente.Nombre,
-						Telefono=cliente.Telefono
-					};
-					var view = new DetalleCliente {
-						DataContext = vm, 
-						Title="Modificar Cliente"
-					};
-					if (view.ShowDialog() == true) {
-						facade.ModificarCliente(vm.Model); 
-						OnPropertyChanged("Clientes");
-					}
+				return modificar ?? (modificar = new RelayCommand(() => {
+                    if (objetoSeleccionado is ClienteVM) {
+                        ClienteVM cliente = (ClienteVM)objetoSeleccionado; 
+                        var vm = new ClienteVM {
+                            Model = new Cliente {
+                                Direccion = cliente.Model.Direccion,
+                                Apellidos = cliente.Model.Apellidos
+                            },
+                            Dni = cliente.Dni,
+                            Nombre = cliente.Nombre,
+                            Telefono = cliente.Telefono
+                        };
+                        var view = new DetalleCliente {
+                            DataContext = vm,
+                            Title = "Modificar Cliente"
+                        };
+                        if (view.ShowDialog() == true) {
+                            facade.ModificarCliente(vm.Model);
+                            OnPropertyChanged("Clientes");
+                        }
+                    }
+                    else if (objetoSeleccionado is VehiculoVM) {
+                        VehiculoVM vehiculo = (VehiculoVM)objetoSeleccionado;
+                        var vm = new DetalleVehiculoVM(vehiculo, clientes); 
+
+                        var view = new DetalleVehiculo {
+                            DataContext = vm,
+                            Title = "Modificar Vehiculo"
+                        };
+                        if (view.ShowDialog() == true) {
+                            facade.ModificarVehiculo(vm.Model.Model);
+                            OnPropertyChanged("Vehiculos");
+                        }
+                    }
 				}));
 			}
 		}
@@ -121,9 +139,15 @@ namespace Clientes.ViewModels {
 		ICommand eliminar;
 		public ICommand Eliminar {
 			get {
-				return eliminar ?? (eliminar = new RelayCommand<ClienteVM>((clienteVM) => {
-					facade.EliminarCliente(clienteVM.Model);
-					OnPropertyChanged("Clientes");
+				return eliminar ?? (eliminar = new RelayCommand(() => {
+                    if (objetoSeleccionado is ClienteVM) {
+                        facade.EliminarCliente(((ClienteVM)objetoSeleccionado).Model);
+                        OnPropertyChanged("Clientes");
+                    }
+                    else if (objetoSeleccionado is VehiculoVM) {
+                        facade.EliminarVehiculo(((VehiculoVM)objetoSeleccionado).Model);
+                        OnPropertyChanged("Vehiculos"); 
+                    }
 				}));
 			}
 		}

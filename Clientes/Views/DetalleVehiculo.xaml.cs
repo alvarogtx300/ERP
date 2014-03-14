@@ -27,15 +27,5 @@ namespace Clientes.Views {
 			if (((VehiculoVM)DataContext).Matricula != null)
 				txMatricula.IsEnabled = false;
 		}
-
-		private void Guardar(object sender, RoutedEventArgs e) {
-			DialogResult = true;
-			Close();
-		}
-
-		private void Cancelar(object sender, RoutedEventArgs e) {
-			DialogResult = false;
-			Close();
-		}
 	}
 }
