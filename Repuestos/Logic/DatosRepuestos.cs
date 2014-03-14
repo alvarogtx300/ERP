@@ -75,8 +75,11 @@ namespace Repuestos.Logic {
 			return repuestos;
 		}
 
-		public void AgregarRepuesto(Repuesto r) {
+		public bool AgregarRepuesto(Repuesto r) {
+			if (repuestos.Contains(r))
+				return false;
 			repuestos.Add(r);
+			return true;			
 		}
 
 		public void EliminarRepuesto(Repuesto r) {
