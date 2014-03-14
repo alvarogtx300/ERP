@@ -184,8 +184,11 @@ namespace Clientes.Logic {
             }
         }
 
-        public void AgregarCliente(Cliente c) {
+        public bool AgregarCliente(Cliente c) {
+			if (clientes.Contains(c))
+				return false;
             clientes.Add(c);
+			return true;
         }
 
         public void EliminarCliente(Cliente c) {
@@ -203,8 +206,11 @@ namespace Clientes.Logic {
             return clientes;
         }
 
-        public void AgregarVehiculo(Vehiculo v) {
-            vehiculos.Add(v);
+        public bool AgregarVehiculo(Vehiculo v) {
+			if (vehiculos.Contains(v))
+				return false;
+			vehiculos.Add(v);
+			return true;
         }
 
         public void ModificarVehiculo(Vehiculo v) {

@@ -99,8 +99,11 @@ namespace Repuestos.Logic {
 			return proveedores;
 		}
 
-		public void AgregarProveedor(Proveedor p){
+		public bool AgregarProveedor(Proveedor p){
+			if (proveedores.Contains(p))
+				return false;
 			proveedores.Add(p);
+			return true;
 		}
 
 		public void EliminarProveedor(Proveedor p) {

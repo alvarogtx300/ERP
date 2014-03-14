@@ -93,14 +93,24 @@ namespace Repuestos.ViewModels {
 							Model = new Proveedor()
 						};
 
-						var view = new DialogoProveedores {
-							DataContext = vm,
-							Title = "Agregar proveedor"
-						};
-
-						if (view.ShowDialog() == true) {
-							facade.AgregarProveedor(vm.Model);
-							OnPropertyChanged("Proveedores");
+						DialogoProveedores view;
+						bool duplicado = true;
+						while (duplicado) {
+							vm.Model.Cif = null;
+							view = new DialogoProveedores {
+								DataContext = vm,
+								Title = "Agregar proveedor"
+							};
+							if (view.ShowDialog() == true) {
+								if (facade.AgregarProveedor(vm.Model)) {
+									duplicado = false;
+									OnPropertyChanged("Proveedores");
+								}
+								else
+									MessageBox.Show("Error, CIF duplicado", "Error");
+							}
+							else
+								duplicado = false;
 						}
 					}
 				}));

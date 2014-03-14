@@ -18,8 +18,8 @@ namespace Clientes.Logic {
             return datos.ListarClientes();
         }
 
-        public void AgregarCliente(Cliente c) {
-            datos.AgregarCliente(c);
+        public bool AgregarCliente(Cliente c) {
+            return datos.AgregarCliente(c);
         }
 
         public void EliminarCliente(Cliente c) {
@@ -30,8 +30,8 @@ namespace Clientes.Logic {
 			datos.ModificarCliente(c); 
 		}
 
-        public void AgregarVehiculo(Vehiculo v) {
-            datos.AgregarVehiculo(v);
+        public bool AgregarVehiculo(Vehiculo v) {
+            return datos.AgregarVehiculo(v);
         }
 
         public void EliminarVehiculo(Vehiculo v) {
