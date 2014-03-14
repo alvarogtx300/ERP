@@ -43,5 +43,15 @@ namespace Inicio {
 			};
 			view.Show();
 		}
+
+        private void repuestos(object sender, RoutedEventArgs e) {
+            var facade = new FacadeRepuestos();
+
+            var vm = new Repuestos.ViewModels.PrincipalVM(facade.ListarProveedores(), facade.ListarRepuestos());
+            var view = new Repuestos.Views.Principal {
+                DataContext = vm
+            };
+            view.Show();
+        }
 	}
 }
