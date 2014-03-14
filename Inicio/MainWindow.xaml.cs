@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ventas.Logic;
 
 namespace Inicio {
 	/// <summary>
@@ -49,7 +50,7 @@ namespace Inicio {
             var facadeRespuestos = new FacadeRepuestos();
             var facadeVentas = new FacadeVentas(); 
 
-            var vm = new Ventas.ViewModels.PrincipalVM(facadeClientes.ListarClientes(),facadeVentas);
+            var vm = new Ventas.ViewModels.PrincipalVM(facadeClientes.ListarClientes(),facadeRespuestos.ListarRepuestos(),facadeVentas.ListarVentas());
             var view = new Repuestos.Views.Principal {
                 DataContext = vm
             };

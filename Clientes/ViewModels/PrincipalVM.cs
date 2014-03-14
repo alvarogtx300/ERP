@@ -14,7 +14,7 @@ using System.Windows.Input;
 namespace Clientes.ViewModels {
     public class PrincipalVM : ViewModelBase {
         private FacadeClientes facade;
-        public ObservableCollection<Cliente> clientes;
+        private ObservableCollection<Cliente> clientes;
         private ObservableCollection<Vehiculo> vehiculos;
 
         public PrincipalVM(ObservableCollection<Cliente> listaClientes, ObservableCollection<Vehiculo> listaVehiculos) {

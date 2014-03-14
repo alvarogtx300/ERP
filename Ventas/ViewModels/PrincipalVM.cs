@@ -3,6 +3,7 @@ using Clientes.Models;
 using Clientes.Views;
 using Framework;
 using Repuestos.Logic;
+using Repuestos.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,17 +12,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Ventas.Logic;
+using Ventas.Models;
 
 namespace Ventas.ViewModels {
     public class PrincipalVM : ViewModelBase {
         private FacadeClientes facadeClientes;
-        private FacadeRepuestos facadeRepuestos; 
-        public ObservableCollection<Cliente> clientes;
-        private ObservableCollection<Vehiculo> vehiculos;
+        private FacadeRepuestos facadeRepuestos;
+        private FacadeVentas facadeVentas; 
+        private ObservableCollection<Cliente> clientes;
+        private ObservableCollection<Repuesto> repuestos;
+        private ObservableCollection<Venta> ventas;
 
-        public PrincipalVM(ObservableCollection<Cliente> listaClientes, ObservableCollection<Vehiculo> listaVehiculos) {
+        public PrincipalVM(ObservableCollection<Cliente> listaClientes, ObservableCollection<Repuesto> listaRespuestos, ObservableCollection<Venta> listaVentas) {
             clientes = listaClientes;
-            vehiculos = listaVehiculos; 
+            repuestos = listaRespuestos;
+            ventas = listaVentas; 
             facadeClientes = new FacadeClientes();
             facadeRepuestos = new FacadeRepuestos(); 
         }
