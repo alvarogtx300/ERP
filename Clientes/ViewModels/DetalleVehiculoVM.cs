@@ -33,7 +33,7 @@ namespace Clientes.ViewModels {
             }
             set {
                 indexCombo = value;
-                Model.Model.RelacionCliente = listaClientes[indexCombo]; 
+                Model.RelacionCliente = listaClientes[indexCombo]; 
             }
         }
 

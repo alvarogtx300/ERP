@@ -38,13 +38,21 @@ namespace Clientes.ViewModels {
 			}
         }
 
+        public Cliente RelacionCliente {
+            get { return Model.RelacionCliente; }
+            set {
+                Model.RelacionCliente = value;
+                OnPropertyChanged("IsOk"); 
+            }
+        }
+
         public string DatosDuenio {
             get { return Model.RelacionCliente.Nombre + " " + Model.RelacionCliente.Apellidos; }
         }
 
 		public bool IsOk {
 			get {
-				return !string.IsNullOrWhiteSpace(Modelo) && !string.IsNullOrWhiteSpace(Matricula);
+				return !string.IsNullOrWhiteSpace(Modelo) && !string.IsNullOrWhiteSpace(Matricula) && Model.RelacionCliente!=null;
 			}
 		}
     }
