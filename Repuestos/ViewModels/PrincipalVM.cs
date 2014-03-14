@@ -35,17 +35,17 @@ namespace Repuestos.ViewModels {
 			}
 		}
 
-		private int index = -1;
-		public int IndexSelected {
-			get { return index; }
-			set { 
-				index = value; 
-				OnPropertyChanged("IsSelected"); 
+		private Object objetoSeleccionado;
+		public Object ObjetoSeleccionado {
+			get { return objetoSeleccionado; }
+			set {
+				objetoSeleccionado = value;
+				OnPropertyChanged("IsSelected");
 			}
 		}
 
 		public bool IsSelected {
-			get { return index > -1; }
+			get { return objetoSeleccionado != null; }
 		}
 
 		private int indexTab = 0;
@@ -53,8 +53,8 @@ namespace Repuestos.ViewModels {
 			get { return indexTab; }
 			set {
 				indexTab = value;
-				index = -1;
-				OnPropertyChanged("IndexSelected");
+				objetoSeleccionado = null;
+				OnPropertyChanged("ObjetoSeleccionado");
 				OnPropertyChanged("IsSelected");
 			}
 		}
