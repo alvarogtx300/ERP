@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ventas.Models {
-	class Venta : ObservableObject{
+	public class Venta : ObservableObject{
 		private Cliente cliente;
 		private ObservableCollection<Repuesto> repuestos;
 		private DateTime fecha;
