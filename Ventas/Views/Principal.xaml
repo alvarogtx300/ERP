@@ -19,36 +19,22 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="General" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox x:Name="listaClientes" SelectedItem="{Binding ObjetoSeleccionado}" Background="{x:Null}" ItemsSource="{Binding Clientes}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
+                    <ListBox x:Name="lista" Background="#E5E5E5" ItemsSource="{Binding Ventas}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Style="{StaticResource Tarjeta}">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"/>
-                                            <ColumnDefinition Width="100"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
+                                <Border Background="White" Margin="10" Padding="5" CornerRadius="3">
+                                    <Expander Grid.Column="0" Width="{Binding ActualWidth, ElementName=lista}" HorizontalContentAlignment="Stretch">
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Model.Cliente.Nombre}" Margin="5,0,5,0" />
+                                                <TextBlock Text="{Binding Model.Fecha}" Margin="5,0,5,0" />
+                                            </StackPanel>
+                                        </Expander.Header>
 
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Apellidos"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Direccion"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Telefono"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Model.Apellidos}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Direccion}"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Telefono}"/>
-                                    </Grid>
+                                        <DataGrid ItemsSource="{Binding Model.Repuestos}">
+
+                                        </DataGrid>
+                                    </Expander>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -59,30 +45,28 @@
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource TabItemText}" Text="Agregar" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
-                <TabItem.Content>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Border Grid.Row="0" Grid.Column="1" Padding="10" Height="45" Width="auto">
-                            <Grid HorizontalAlignment="Center">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
-                                <ComboBox Grid.Column="1" Width="180" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"></ComboBox>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </TabItem.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Grid.Column="1" Padding="10" Height="45" Width="auto">
+                        <Grid HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                            <ComboBox Grid.Column="1" Width="180" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"/>
+                        </Grid>
+                    </Border>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>

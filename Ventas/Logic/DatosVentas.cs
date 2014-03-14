@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repuestos.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +14,28 @@ namespace Ventas.Logic {
 
 		private DatosVentas() {
 			ventas = new ObservableCollection<Venta>();
+			ventas.Add(new Venta {
+				Cliente = new Clientes.Models.Cliente {
+					Nombre = "Prueba"
+				},
+				Fecha = DateTime.Now,
+				Repuestos = new ObservableCollection<Repuesto>{
+					new Repuesto{
+						Codigo=1,
+						Descripcion="Rueda de 20'",
+						Nombre="Rueda",
+						NumArticulos=5,
+						Precio=25.50
+					},
+					new Repuesto{
+						Codigo=2,
+						Descripcion="Pequeños",
+						Nombre="Amortiguador",
+						NumArticulos=3,
+						Precio=30
+					}
+				}
+			});
 		}
 
 		public static DatosVentas Instance {
