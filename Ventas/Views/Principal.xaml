@@ -76,7 +76,7 @@
                                     <TextBox Width="50" Margin="10,0,10,0" VerticalAlignment="Center" Text="{Binding CantidadRepuesto,UpdateSourceTrigger=PropertyChanged}" />
                                     <Button Content="Agregar" VerticalAlignment="Center" IsEnabled="{Binding IsOk}" Command="{Binding Agregar}" />
                                 </StackPanel>
-                        </Border>
+                            </Border>
                         </StackPanel>
                         <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
                                   AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
@@ -119,6 +119,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
+                </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>

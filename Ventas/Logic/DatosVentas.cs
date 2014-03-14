@@ -19,7 +19,7 @@ namespace Ventas.Logic {
 					Nombre = "Prueba"
 				},
 				Fecha = DateTime.Now,
-				Repuestos = new ObservableCollection<Repuesto>{
+				/*Repuestos = new ObservableCollection<Repuesto>{
 					new Repuesto{
 						Codigo=1,
 						Descripcion="Rueda de 20'",
@@ -34,7 +34,7 @@ namespace Ventas.Logic {
 						NumArticulos=3,
 						Precio=30
 					}
-				}
+				}*/
 			});
 		}
 
