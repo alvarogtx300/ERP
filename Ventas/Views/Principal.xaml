@@ -107,34 +107,9 @@
                 </TabItem.Header>
                 <TabItem.Content>
                     <ListBox Background="{x:Null}" SelectedItem="{Binding ObjetoSeleccionado}" ItemsSource="{Binding Vehiculos}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Style="{StaticResource Tarjeta}">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"/>
-                                            <ColumnDefinition Width="100"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
-
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Modelo"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Matricula"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Dueño"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Modelo}"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Matricula}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding DatosDuenio}" />
-
-                                    </Grid>
-                                </Border>
+                                
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

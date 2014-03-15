@@ -60,6 +60,8 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexComboRepuestos = value;
+				cantidadRepuesto = 0;
+				OnPropertyChanged("CantidadRepuesto");
                 OnPropertyChanged("CombosOk");
                 OnPropertyChanged("StockRepuesto");
                 OnPropertyChanged("IsCantidadOk");
@@ -104,7 +106,7 @@ namespace Ventas.ViewModels {
             set {
                 int cant = 0;
                 if (int.TryParse(value, out cant))
-                    if (cant > 0) {
+                    if (cant > 0 && cant<=int.Parse(StockRepuesto)) {
                         cantidadRepuesto = cant;
                         OnPropertyChanged("IsCantidadOk");
                     }
@@ -126,14 +128,14 @@ namespace Ventas.ViewModels {
         }
 
         public bool IsCantidadOk {
-            get { return cantidadRepuesto > 0 && repuestos[indexComboRepuestos].NumArticulos >= cantidadRepuesto; }
+            get { return  cantidadRepuesto > 0; }
         }
 
         ICommand agregar;
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    Repuesto re = repuestos[indexComboRepuestos]; 
+                    Repuesto re = repuestos[indexComboRepuestos];                     
                     re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
                     venta.DetallesVentas.Add(
                         new DetalleVenta {
@@ -141,6 +143,9 @@ namespace Ventas.ViewModels {
                             Repuesto = repuestos[indexComboRepuestos]
                         }
                     );
+					cantidadRepuesto = 0;
+					OnPropertyChanged("IsCantidadOk");
+					OnPropertyChanged("CantidadRepuesto");
                     OnPropertyChanged("StockRepuesto");
                     OnPropertyChanged("Venta");
                 }));

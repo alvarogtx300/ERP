@@ -38,16 +38,19 @@
                                             <RowDefinition/>
                                             <RowDefinition/>
                                             <RowDefinition/>
+                                            <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Apellidos"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Direccion"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Telefono"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Model.Apellidos}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Direccion}"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Telefono}"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Dni"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Apellidos"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Direccion"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Telefono"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Dni}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Apellidos}"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Model.Direccion}"/>
+                                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Telefono}"/>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
