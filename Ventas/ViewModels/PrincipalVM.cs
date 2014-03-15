@@ -141,7 +141,7 @@ namespace Ventas.ViewModels {
         public ICommand GuardarVenta {
 			get {
                 return guardarVenta ?? (guardarVenta = new RelayCommand(() => {
-                    ventas.Add(venta);
+                    facadeVentas.AgregarVenta(venta);
                     venta = new Venta();
                     indexComboRepuestos = -1;
                     indexComboClientes = -1;
@@ -154,7 +154,7 @@ namespace Ventas.ViewModels {
                     OnPropertyChanged("CombosOk");
                     OnPropertyChanged("IsCantidadOk");
                     OnPropertyChanged("Ventas");
-                    OnPropertyChanged("IndexTab"); 
+                    OnPropertyChanged("IndexTab");
 				}));
 			}
 		}
