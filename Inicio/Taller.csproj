@@ -7,7 +7,7 @@
     <ProjectGuid>{9ED93757-FFD4-48CF-9292-979C91394EBB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Inicio</RootNamespace>
+    <RootNamespace>Taller</RootNamespace>
     <AssemblyName>Inicio</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

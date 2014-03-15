@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "MVVMBase\CH07.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repuestos", "Repuestos\Repuestos.csproj", "{F896C995-995F-4CC9-A1E8-344BAB5FF6E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inicio", "Inicio\Inicio.csproj", "{9ED93757-FFD4-48CF-9292-979C91394EBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller", "Inicio\Taller.csproj", "{9ED93757-FFD4-48CF-9292-979C91394EBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventas", "Ventas\Ventas.csproj", "{36414DD4-2DD8-477C-B635-B92C37585C86}"
 EndProject

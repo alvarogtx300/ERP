@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ventas.Logic;
 
-namespace Inicio {
+namespace Taller {
 	/// <summary>
 	/// Lógica de interacción para MainWindow.xaml
 	/// </summary>
