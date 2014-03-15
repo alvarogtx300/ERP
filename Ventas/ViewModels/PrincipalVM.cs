@@ -126,7 +126,7 @@ namespace Ventas.ViewModels {
         }
 
         public bool IsCantidadOk {
-            get { return  cantidadRepuesto > 0; }
+            get { return cantidadRepuesto > 0 && repuestos[indexComboRepuestos].NumArticulos >= cantidadRepuesto; }
         }
 
         ICommand agregar;
@@ -134,20 +134,15 @@ namespace Ventas.ViewModels {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
                     Repuesto re = repuestos[indexComboRepuestos]; 
-                    if (re.NumArticulos < cantidadRepuesto) {
-                        MessageBox.Show("Error. No hay stock suficiente de ese repuesto. ","Error"); 
-                    }
-                    else {
-                        re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
-                        venta.DetallesVentas.Add(
-                            new DetalleVenta {
-                                Cantidad = cantidadRepuesto,
-                                Repuesto = repuestos[indexComboRepuestos]
-                            }
-                        );
-                        OnPropertyChanged("StockRepuesto");
-                        OnPropertyChanged("Venta");
-                    }
+                    re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
+                    venta.DetallesVentas.Add(
+                        new DetalleVenta {
+                            Cantidad = cantidadRepuesto,
+                            Repuesto = repuestos[indexComboRepuestos]
+                        }
+                    );
+                    OnPropertyChanged("StockRepuesto");
+                    OnPropertyChanged("Venta");
                 }));
             }
         }
