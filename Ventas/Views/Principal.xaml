@@ -31,43 +31,13 @@
                                             </StackPanel>
                                         </Expander.Header>
                                         
-                                        <DataGrid HorizontalContentAlignment="Stretch" ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False">
+                                        <DataGrid HorizontalContentAlignment="Stretch" CanUserAddRows="False" ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
-                                                <DataGridTemplateColumn Header="Codigo" >
-                                                    <DataGridTemplateColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Repuesto.Codigo}" />
-                                                        </DataTemplate>
-                                                    </DataGridTemplateColumn.CellTemplate>
-                                                </DataGridTemplateColumn>
-                                                <DataGridTemplateColumn Header="Nombre" >
-                                                    <DataGridTemplateColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Repuesto.Nombre}" />
-                                                        </DataTemplate>
-                                                    </DataGridTemplateColumn.CellTemplate>
-                                                </DataGridTemplateColumn>
-                                                <DataGridTemplateColumn Header="Precio" >
-                                                    <DataGridTemplateColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Repuesto.Precio}" />
-                                                        </DataTemplate>
-                                                    </DataGridTemplateColumn.CellTemplate>
-                                                </DataGridTemplateColumn>
-                                                <DataGridTemplateColumn Header="Cantidad" >
-                                                    <DataGridTemplateColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Cantidad}" />
-                                                        </DataTemplate>
-                                                    </DataGridTemplateColumn.CellTemplate>
-                                                </DataGridTemplateColumn>
-                                                <DataGridTemplateColumn Header="Total" >
-                                                    <DataGridTemplateColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Suma}" />
-                                                        </DataTemplate>
-                                                    </DataGridTemplateColumn.CellTemplate>
-                                                </DataGridTemplateColumn>
+                                                <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" />
+                                                <DataGridTextColumn Header="Nombre" Binding="{Binding Repuesto.Nombre}" />
+                                                <DataGridTextColumn Header="Precio" Binding="{Binding Repuesto.Precio}" />                                               
+                                                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                                                <DataGridTextColumn Header="Total" Binding="{Binding Suma}" />
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </Expander>
@@ -111,7 +81,7 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
+                            <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}"
                                       AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Header="Codigo" >
