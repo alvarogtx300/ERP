@@ -111,45 +111,9 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
+                            <DataGrid IsReadOnly="True" BorderThickness="1" BorderBrush="Black" Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
                                       AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
-                                <DataGrid.Columns>
-                                    <DataGridTemplateColumn Header="Codigo" >
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Repuesto.Codigo}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Nombre" >
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Repuesto.Nombre}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Precio" >
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Repuesto.Precio}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Cantidad" >
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Cantidad}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Total" >
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Suma}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" />
                             </DataGrid>
                             <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
                                 IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
