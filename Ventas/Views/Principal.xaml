@@ -81,9 +81,15 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            <DataGrid IsReadOnly="True" BorderThickness="1" BorderBrush="Black" Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
+                            <DataGrid IsReadOnly="True" CanUserResizeRows="False" BorderThickness="1" BorderBrush="Black" Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
                                       AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
-                                <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" />
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" Width="*" />
+                                    <DataGridTextColumn Header="Nombre" Binding="{Binding Repuesto.Nombre}" Width="*" />
+                                    <DataGridTextColumn Header="Precio" Binding="{Binding Repuesto.Precio}" Width="*" />
+                                    <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*" />
+                                    <DataGridTextColumn Header="Total" Binding="{Binding Suma}" Width="*" />
+                                </DataGrid.Columns>
                             </DataGrid>
                             <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
                                 IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
