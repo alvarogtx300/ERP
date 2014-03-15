@@ -127,7 +127,7 @@ namespace Ventas.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    Venta.DetallesVentas.Add(
+                    venta.DetallesVentas.Add(
                         new DetalleVenta {
                             Cantidad = cantidadRepuesto,
                             Repuesto = repuestos[indexComboRepuestos]

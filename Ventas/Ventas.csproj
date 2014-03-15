@@ -70,6 +70,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\DetalleVentaVM.cs" />
     <Compile Include="ViewModels\PrincipalVM.cs" />
     <Compile Include="ViewModels\VentaVM.cs" />
     <Compile Include="Views\Principal.xaml.cs">

@@ -10,8 +10,14 @@ using Ventas.Models;
 
 namespace Ventas.ViewModels {
     public class VentaVM : ViewModelBase<Venta> {
-        public ObservableCollection<DetalleVenta> DetallesVentas {
-            get { return Model.DetallesVentas; }
+        public IEnumerable<DetalleVentaVM> DetallesVentas {
+            get {
+                return Model.DetallesVentas.Select(
+                    det => new DetalleVentaVM {
+                        Model = det
+                    }
+                );
+            }
         }
 
         public bool IsVentaOk {
