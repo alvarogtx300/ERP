@@ -27,7 +27,7 @@
                                         </Expander.Header>
                                         <!--Contenido del expander-->                                                                                  
                                         <DataGrid RowHeaderWidth="0" CanUserResizeRows="False" IsReadOnly="True" 
-                                                ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False" Margin="0,5,44,0" >
+                                                ItemsSource="{Binding DetallesVentas}" AutoGenerateColumns="False" Margin="0,5,44,0" >
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Codigo" Binding="{Binding Model.Repuesto.Codigo}" />
                                                 <DataGridTextColumn Header="Nombre" Binding="{Binding Model.Repuesto.Nombre}" />
