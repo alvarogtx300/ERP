@@ -76,7 +76,7 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            <DataGrid IsReadOnly="True" CanUserResizeRows="False" BorderThickness="1" BorderBrush="Black" Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
+                            <DataGrid RowHeaderWidth="0" IsReadOnly="True" CanUserResizeRows="False" BorderThickness="1" BorderBrush="Black" Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
                                       AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" Width="*" />
