@@ -47,7 +47,6 @@
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Height" Value="35" />
-        <Setter Property="SeparatorBrush" Value="DarkRed" />
         <Setter Property="FontWeight" Value="Black" />
         <Setter Property="Template">
             <Setter.Value>
@@ -57,8 +56,27 @@
 		                    BorderThickness="0,0,1,1"
 		                    Padding="5,0,3,0" BorderBrush="Black" Background="#DDDDDD">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-			                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-				                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+			                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="columnFinal" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="FontWeight" Value="Black" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid>
+                        <Border x:Name="columnHeaderBorder"
+		                    BorderThickness="0,0,0,1"
+		                    Padding="5,0,3,0" BorderBrush="Black" Background="#DDDDDD">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+			                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                     </Grid>
                 </ControlTemplate>

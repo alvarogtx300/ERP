@@ -84,7 +84,7 @@
                                     <DataGridTextColumn Header="Nombre" Binding="{Binding Model.Repuesto.Nombre}" Width="*" />
                                     <DataGridTextColumn Header="Precio" Binding="{Binding Model.Repuesto.Precio}" Width="*" />
                                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Model.Cantidad}" Width="*" />
-                                    <DataGridTextColumn Header="Total" Binding="{Binding Model.Suma}" Width="*" />
+                                    <DataGridTextColumn HeaderStyle="{StaticResource columnFinal}" Header="Total" Binding="{Binding Model.Suma}" Width="*" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
