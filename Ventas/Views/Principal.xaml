@@ -15,8 +15,8 @@
         </Menu>
         <Grid DockPanel.Dock="Bottom" Height="45">
             <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
-                    IsDefault="True" 
-                    Command="{Binding Agregar}" />
+                    IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
+                    Command="{Binding GuardarVenta}" />
         </Grid>
         <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="White" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>

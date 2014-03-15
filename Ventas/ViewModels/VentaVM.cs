@@ -13,5 +13,9 @@ namespace Ventas.ViewModels {
         public ObservableCollection<DetalleVenta> DetallesVentas {
             get { return Model.DetallesVentas; }
         }
+
+        public bool IsVentaOk {
+            get { return Model.DetallesVentas.Count>0; }
+        }
     }
 }

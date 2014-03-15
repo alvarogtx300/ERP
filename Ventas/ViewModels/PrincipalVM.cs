@@ -72,6 +72,7 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexComboClientes = value;
+                venta.Cliente = clientes[indexComboClientes]; 
                 venta.DetallesVentas.Clear();
                 cantidadRepuesto = 0; 
                 indexComboRepuestos = -1;
@@ -126,21 +127,33 @@ namespace Ventas.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    venta.DetallesVentas.Add(
+                    Venta.DetallesVentas.Add(
                         new DetalleVenta {
                             Cantidad = cantidadRepuesto,
                             Repuesto = repuestos[indexComboRepuestos]
                         }
                     );
+                    OnPropertyChanged("Venta"); 
                 }));
             }
         }
-
-		ICommand modificar;
-		public ICommand Modificar {
+		ICommand guardarVenta;
+        public ICommand GuardarVenta {
 			get {
-				return modificar ?? (modificar = new RelayCommand(() => {
-                    
+                return guardarVenta ?? (guardarVenta = new RelayCommand(() => {
+                    ventas.Add(venta);
+                    venta.DetallesVentas.Clear(); 
+                    indexComboRepuestos = -1;
+                    indexComboClientes = -1;
+                    cantidadRepuesto = 0;
+                    indexTab = 0; 
+                    OnPropertyChanged("CantidadRepuesto");
+                    OnPropertyChanged("IndexComboClientes");
+                    OnPropertyChanged("IndexComboRepuestos");
+                    OnPropertyChanged("CombosOk");
+                    OnPropertyChanged("IsCantidadOk");
+                    OnPropertyChanged("Ventas");
+                    OnPropertyChanged("IndexTab"); 
 				}));
 			}
 		}
