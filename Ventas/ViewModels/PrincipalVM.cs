@@ -61,6 +61,7 @@ namespace Ventas.ViewModels {
             set {
                 indexComboRepuestos = value;
                 OnPropertyChanged("CombosOk");
+                OnPropertyChanged("StockRepuesto");
                 OnPropertyChanged("IsCantidadOk");
             }
         }
@@ -78,6 +79,7 @@ namespace Ventas.ViewModels {
                 indexComboRepuestos = -1;
                 OnPropertyChanged("CantidadRepuesto");
                 OnPropertyChanged("IndexComboRepuestos");
+                OnPropertyChanged("StockRepuesto");
                 OnPropertyChanged("IsCantidadOk");
                 OnPropertyChanged("CombosOk");
             }
@@ -91,6 +93,10 @@ namespace Ventas.ViewModels {
                 indexComboRepuestos = -1;
 			}
 		}
+
+        public string StockRepuesto {
+            get { return indexComboRepuestos >= 0 ? Convert.ToString(repuestos[indexComboRepuestos].NumArticulos) : "..."; }
+        }
 
         private int cantidadRepuesto;
         public string CantidadRepuesto {
@@ -127,17 +133,26 @@ namespace Ventas.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    venta.DetallesVentas.Add(
-                        new DetalleVenta {
-                            Cantidad = cantidadRepuesto,
-                            Repuesto = repuestos[indexComboRepuestos]
-                        }
-                    );
-                    OnPropertyChanged("Venta"); 
+                    Repuesto re = repuestos[indexComboRepuestos]; 
+                    if (re.NumArticulos < cantidadRepuesto) {
+                        MessageBox.Show("Error. No hay stock suficiente de ese repuesto. ","Error"); 
+                    }
+                    else {
+                        re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
+                        venta.DetallesVentas.Add(
+                            new DetalleVenta {
+                                Cantidad = cantidadRepuesto,
+                                Repuesto = repuestos[indexComboRepuestos]
+                            }
+                        );
+                        OnPropertyChanged("StockRepuesto");
+                        OnPropertyChanged("Venta");
+                    }
                 }));
             }
         }
-		ICommand guardarVenta;
+        
+        ICommand guardarVenta;
         public ICommand GuardarVenta {
 			get {
                 return guardarVenta ?? (guardarVenta = new RelayCommand(() => {
@@ -151,6 +166,7 @@ namespace Ventas.ViewModels {
                     OnPropertyChanged("CantidadRepuesto");
                     OnPropertyChanged("IndexComboClientes");
                     OnPropertyChanged("IndexComboRepuestos");
+                    OnPropertyChanged("StockRepuesto");
                     OnPropertyChanged("CombosOk");
                     OnPropertyChanged("IsCantidadOk");
                     OnPropertyChanged("Ventas");
