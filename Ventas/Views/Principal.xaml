@@ -25,8 +25,8 @@
                                                 <TextBlock Text="{Binding Model.Fecha}" Margin="5,0,5,0" />
                                             </StackPanel>
                                         </Expander.Header>
-                                        
-                                        <DataGrid HorizontalContentAlignment="Stretch" CanUserAddRows="False" ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False">
+
+                                        <DataGrid HorizontalContentAlignment="Stretch" CanUserResizeRows="False" IsReadOnly="True" ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Codigo" Binding="{Binding Repuesto.Codigo}" />
                                                 <DataGridTextColumn Header="Nombre" Binding="{Binding Repuesto.Nombre}" />
