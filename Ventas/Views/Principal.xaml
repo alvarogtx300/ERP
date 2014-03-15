@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title=" Ventas" Height="480" Width="600"
         MinHeight="480" MinWidth="600" Margin="0" Padding="0">
-    
+
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Archivo">
@@ -13,7 +13,7 @@
             <MenuItem Header="Modificar" IsEnabled="{Binding IsSelected}" Command="{Binding Modificar}" />
             <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" Command="{Binding Eliminar}" />
         </Menu>
-        <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="White" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
+        <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource TabItemText}" Text="General" VerticalAlignment="Center" />
@@ -22,18 +22,56 @@
                     <ListBox x:Name="lista" Background="#E5E5E5" ItemsSource="{Binding Ventas}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Background="White" Margin="10" Padding="5" CornerRadius="3">
-                                    <Expander Grid.Column="0" Width="{Binding ActualWidth, ElementName=lista}" HorizontalContentAlignment="Stretch">
+                                <Border Style="{StaticResource Tarjeta}" Width="auto" Background="White">
+                                    <Expander Grid.Column="0" Width="{Binding ActualWidth, ElementName=lista}" HorizontalContentAlignment="Left">
                                         <Expander.Header>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding Model.Cliente.Nombre}" Margin="5,0,5,0" />
                                                 <TextBlock Text="{Binding Model.Fecha}" Margin="5,0,5,0" />
                                             </StackPanel>
                                         </Expander.Header>
-
-                                        <DataGrid ItemsSource="{Binding Model.Repuestos}">
-
-                                        </DataGrid>
+                                        
+                                        <Border Background="Gray" Padding="10">
+                                            <DataGrid HorizontalContentAlignment="Stretch" ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False">
+                                                <DataGrid.Columns>
+                                                    <DataGridTemplateColumn Header="Codigo" >
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Repuesto.Codigo}" />
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                    <DataGridTemplateColumn Header="Nombre" >
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Repuesto.Nombre}" />
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                    <DataGridTemplateColumn Header="Precio" >
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Repuesto.Precio}" />
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                    <DataGridTemplateColumn Header="Cantidad" >
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Cantidad}" />
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                    <DataGridTemplateColumn Header="Total" >
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Suma}" />
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </Border>
                                     </Expander>
                                 </Border>
                             </DataTemplate>
@@ -46,78 +84,80 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Agregar" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <Grid Margin="0,20,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="6*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                            <RowDefinition />
-                            <RowDefinition Height="45" />
-                        </Grid.RowDefinitions>
+                    <Border Background="White">
+                        <Grid Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition />
+                                <RowDefinition Height="45" />
+                            </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Grid.Column="1">
-                            <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,38,0"/>
-                                    <ComboBox SelectedIndex="{Binding IndexComboClientes}" Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"></ComboBox>
-                                </StackPanel>
-                            </Border>
-                            <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Repuestos" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
-                                    <ComboBox Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Repuestos}" SelectedIndex="{Binding IndexComboRepuestos}" DisplayMemberPath="Nombre"></ComboBox>
-                                    <TextBox Width="50" IsEnabled="{Binding CombosOk}" Margin="20,0,20,0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplateCantidad}" Text="{Binding CantidadRepuesto,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
-                                    <Button Content="Agregar" VerticalAlignment="Center" IsEnabled="{Binding IsCantidadOk}" Command="{Binding Agregar}" />
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                        <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
-                                  AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="Codigo" >
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Repuesto.Codigo}" />
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Nombre" >
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Repuesto.Nombre}" />
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Precio" >
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Repuesto.Precio}" />
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Cantidad" >
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Cantidad}" />
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="Total" >
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Suma}" />
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
-                            IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
-                            Command="{Binding GuardarVenta}" />
-                    </Grid>
+                            <StackPanel Grid.Row="0" HorizontalAlignment="Center" Grid.Column="1">
+                                <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,38,0"/>
+                                        <ComboBox SelectedIndex="{Binding IndexComboClientes}" Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"></ComboBox>
+                                    </StackPanel>
+                                </Border>
+                                <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Repuestos" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                                        <ComboBox Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Repuestos}" SelectedIndex="{Binding IndexComboRepuestos}" DisplayMemberPath="Nombre"></ComboBox>
+                                        <TextBox Width="50" IsEnabled="{Binding CombosOk}" Margin="20,0,20,0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplateCantidad}" Text="{Binding CantidadRepuesto,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+                                        <Button Content="Agregar" VerticalAlignment="Center" IsEnabled="{Binding IsCantidadOk}" Command="{Binding Agregar}" />
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                            <DataGrid Grid.Column="0" ItemsSource="{Binding Venta.DetallesVentas}" 
+                                      AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,20">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="Codigo" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Repuesto.Codigo}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Nombre" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Repuesto.Nombre}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Precio" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Repuesto.Precio}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Cantidad" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Cantidad}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Total" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Suma}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
+                                IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
+                                Command="{Binding GuardarVenta}" />
+                        </Grid>
+                    </Border>
                 </TabItem.Content>
             </TabItem>
             <TabItem>

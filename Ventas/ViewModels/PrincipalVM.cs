@@ -42,7 +42,7 @@ namespace Ventas.ViewModels {
         }
 
         public IEnumerable<VentaVM> Ventas {
-            get { return ventas.Select(venta => new VentaVM { Model = venta }); }
+            get { return ventas.Select(v => new VentaVM { Model = v }); }
         }
 
         public IEnumerable<RepuestoVM> Repuestos {
@@ -142,7 +142,7 @@ namespace Ventas.ViewModels {
 			get {
                 return guardarVenta ?? (guardarVenta = new RelayCommand(() => {
                     ventas.Add(venta);
-                    venta.DetallesVentas.Clear(); 
+                    venta = new Venta();
                     indexComboRepuestos = -1;
                     indexComboClientes = -1;
                     cantidadRepuesto = 0;
