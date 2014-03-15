@@ -53,6 +53,50 @@ namespace Ventas.ViewModels {
             get { return new VentaVM { Model = venta }; }
         }
 
+        //Gestion estadisticas
+        private int indexRepEstadisticas=-1; 
+        public int IndexRepEstadisticas {
+            get {
+                return indexRepEstadisticas;
+            }
+            set {
+                indexRepEstadisticas = value;
+                OnPropertyChanged("RepuestosVendidos"); 
+            }
+        }
+
+        public string RepuestosVendidos {
+            get {
+                int cant = 0;
+                if (indexRepEstadisticas >= 0) {
+                    Repuesto reSelect = repuestos[indexRepEstadisticas];
+                    ventas.ToList<Venta>().ForEach(ven => {
+                        ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
+                            if (detVenta.Repuesto.Codigo == reSelect.Codigo)
+                                cant += detVenta.Cantidad;
+                        });
+                    }); 
+                    return Convert.ToString(cant); 
+                }
+                else
+                    return "...";
+            }
+        }
+
+        /*
+        public int NumVentasRepuesto {
+            get { }
+        }
+
+        public int TotalRecaudadoRepuesto {
+            get { }
+        }
+
+        public int MediaRecaudadoRepuesto {
+            get { }
+        }
+        */
+
         private int indexComboRepuestos=-1; 
         public int IndexComboRepuestos {
             get {
