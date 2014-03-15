@@ -30,137 +30,11 @@ namespace Clientes.Logic {
                     Telefono = 987654321
 				}, 
                 new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
-				}, 
-                new Cliente {
-					Dni = "22222222B",
-                    Nombre = "Alvaro", 
-                    Apellidos = "Manzanas", 
-                    Direccion = "Av. Falsa 321", 
-                    Telefono = 987654321
+					Dni = "33333333C",
+                    Nombre = "Sergio", 
+                    Apellidos = "Gomez", 
+                    Direccion = "Plz. Falsa 321", 
+                    Telefono = 892734657
 				}
 			};
 
@@ -171,9 +45,14 @@ namespace Clientes.Logic {
                     RelacionCliente = clientes[0]
                 },
                 new Vehiculo {
-                    Matricula = "56748-B", 
+                    Matricula = "567248-B", 
                     Modelo = "Opel", 
                     RelacionCliente = clientes[1]
+                },
+                new Vehiculo {
+                    Matricula = "23145-B", 
+                    Modelo = "Renault", 
+                    RelacionCliente = clientes[2]
                 }
             }; 
         }
