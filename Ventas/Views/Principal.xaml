@@ -18,15 +18,16 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource Tarjeta}" Width="auto" Background="White">
-                                    <Expander Grid.Column="0" Width="{Binding ActualWidth, ElementName=lista}" HorizontalContentAlignment="Left">
+                                    <Expander x:Name="expander" Grid.Column="0" Width="{Binding ActualWidth, ElementName=lista}" >
                                         <Expander.Header>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding Model.Cliente.Nombre}" Margin="5,0,5,0" />
                                                 <TextBlock Text="{Binding Model.Fecha}" Margin="5,0,5,0" />
                                             </StackPanel>
                                         </Expander.Header>
-
-                                        <DataGrid HorizontalContentAlignment="Stretch" RowHeaderWidth="0" CanUserResizeRows="False" IsReadOnly="True" ItemsSource="{Binding DetallesVentas}" AutoGenerateColumns="False" Margin="0,5,0,0">
+                                        <!--Contenido del expander-->                                                                                  
+                                        <DataGrid RowHeaderWidth="0" CanUserResizeRows="False" IsReadOnly="True" 
+                                                ItemsSource="{Binding Model.DetallesVentas}" AutoGenerateColumns="False" Margin="0,5,44,0" >
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Codigo" Binding="{Binding Model.Repuesto.Codigo}" />
                                                 <DataGridTextColumn Header="Nombre" Binding="{Binding Model.Repuesto.Nombre}" />
