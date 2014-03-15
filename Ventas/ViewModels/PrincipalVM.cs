@@ -157,17 +157,5 @@ namespace Ventas.ViewModels {
 				}));
 			}
 		}
-
-		ICommand eliminar;
-		public ICommand Eliminar {
-			get {
-				return eliminar ?? (eliminar = new RelayCommand(() => {
-                    MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
-                    if (MessageBox.Show("¿Seguro que desea eliminar?", "Eliminar", btnMessageBox) == MessageBoxResult.Yes) {
-                        
-                    }
-				}));
-			}
-		}
     }
 }
