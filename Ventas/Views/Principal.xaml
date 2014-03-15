@@ -62,19 +62,19 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0" Grid.Column="1">
+                        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Grid.Column="1">
                             <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
-                                    <ComboBox SelectedIndex="{Binding IndexComboClientes}" Grid.Column="1" Grid.Row="0" Width="180" VerticalAlignment="Center" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"></ComboBox>
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Cliente" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,38,0"/>
+                                    <ComboBox SelectedIndex="{Binding IndexComboClientes}" Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Clientes}" DisplayMemberPath="Datos"></ComboBox>
                                 </StackPanel>
                             </Border>
                             <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <TextBlock Grid.Column="0" Grid.Row="0" Text="Repuestos" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
                                     <ComboBox Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Repuestos}" SelectedIndex="{Binding IndexComboRepuestos}" DisplayMemberPath="Nombre"></ComboBox>
-                                    <TextBox Width="50" Margin="10,0,10,0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplateCantidad}" Text="{Binding CantidadRepuesto,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
-                                    <Button Content="Agregar" VerticalAlignment="Center" IsEnabled="{Binding IsOk}" Command="{Binding Agregar}" />
+                                    <TextBox Width="50" IsEnabled="{Binding CombosOk}" Margin="20,0,20,0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplateCantidad}" Text="{Binding CantidadRepuesto,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Content="Agregar" VerticalAlignment="Center" IsEnabled="{Binding IsCantidadOk}" Command="{Binding Agregar}" />
                                 </StackPanel>
                             </Border>
                         </StackPanel>

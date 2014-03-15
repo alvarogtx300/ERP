@@ -60,7 +60,8 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexComboRepuestos = value;
-                OnPropertyChanged("IsOk");
+                OnPropertyChanged("CombosOk");
+                OnPropertyChanged("IsCantidadOk");
             }
         }
 
@@ -71,10 +72,13 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexComboClientes = value;
-                venta.DetallesVentas.Clear(); 
+                venta.DetallesVentas.Clear();
+                cantidadRepuesto = 0; 
                 indexComboRepuestos = -1;
+                OnPropertyChanged("CantidadRepuesto");
                 OnPropertyChanged("IndexComboRepuestos");
-                OnPropertyChanged("IsOk");
+                OnPropertyChanged("IsCantidadOk");
+                OnPropertyChanged("CombosOk");
             }
         }
 
@@ -95,23 +99,27 @@ namespace Ventas.ViewModels {
                 if (int.TryParse(value, out cant))
                     if (cant > 0) {
                         cantidadRepuesto = cant;
-                        OnPropertyChanged("IsOk");
+                        OnPropertyChanged("IsCantidadOk");
                     }
                     else {
                         cantidadRepuesto = 0;
-                        OnPropertyChanged("IsOk");
+                        OnPropertyChanged("IsCantidadOk");
                         throw new ArgumentException();
                     }
                 else {
                     cantidadRepuesto = 0;
-                    OnPropertyChanged("IsOk");
+                    OnPropertyChanged("IsCantidadOk");
                     throw new ArgumentException();
                 }
             }
         }
 
-        public bool IsOk {
-            get { return  cantidadRepuesto > 0 && indexComboRepuestos >= 0 && indexComboClientes >= 0; }
+        public bool CombosOk {
+            get { return indexComboClientes>=0 && indexComboRepuestos>=0; }
+        }
+
+        public bool IsCantidadOk {
+            get { return  cantidadRepuesto > 0; }
         }
 
         ICommand agregar;
