@@ -146,7 +146,8 @@ namespace Ventas.ViewModels {
                     indexComboRepuestos = -1;
                     indexComboClientes = -1;
                     cantidadRepuesto = 0;
-                    indexTab = 0; 
+                    indexTab = 0;
+                    OnPropertyChanged("Venta");
                     OnPropertyChanged("CantidadRepuesto");
                     OnPropertyChanged("IndexComboClientes");
                     OnPropertyChanged("IndexComboRepuestos");
