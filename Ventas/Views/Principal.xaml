@@ -13,11 +13,6 @@
             <MenuItem Header="Modificar" IsEnabled="{Binding IsSelected}" Command="{Binding Modificar}" />
             <MenuItem Header="Eliminar" IsEnabled="{Binding IsSelected}" Command="{Binding Eliminar}" />
         </Menu>
-        <Grid DockPanel.Dock="Bottom" Height="45">
-            <Button Grid.Column="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
-                    IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
-                    Command="{Binding GuardarVenta}" />
-        </Grid>
         <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="White" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">    
             <TabItem>
                 <TabItem.Header>
@@ -60,6 +55,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100" />
                             <RowDefinition />
+                            <RowDefinition Height="45" />
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0" HorizontalAlignment="Center" Grid.Column="1">
@@ -118,6 +114,9 @@
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
+                        <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
+                            IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
+                            Command="{Binding GuardarVenta}" />
                     </Grid>
                 </TabItem.Content>
             </TabItem>
