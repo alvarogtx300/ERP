@@ -29,11 +29,11 @@
                                         <DataGrid RowHeaderWidth="0" CanUserResizeRows="False" IsReadOnly="True" 
                                                 ItemsSource="{Binding DetallesVentas}" AutoGenerateColumns="False" Margin="0,5,44,0" >
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Codigo" Binding="{Binding Model.Repuesto.Codigo}" />
-                                                <DataGridTextColumn Header="Nombre" Binding="{Binding Model.Repuesto.Nombre}" />
-                                                <DataGridTextColumn Header="Precio" Binding="{Binding Model.Repuesto.Precio}" />
-                                                <DataGridTextColumn Header="Cantidad" Binding="{Binding Model.Cantidad}" />
-                                                <DataGridTextColumn Header="Total" Binding="{Binding Model.Suma}" />
+                                                <DataGridTextColumn Header="Codigo" Binding="{Binding Model.Repuesto.Codigo}" Width="*" />
+                                                <DataGridTextColumn Header="Nombre" Binding="{Binding Model.Repuesto.Nombre}" Width="*" />
+                                                <DataGridTextColumn Header="Precio" Binding="{Binding Model.Repuesto.Precio}" Width="*" />
+                                                <DataGridTextColumn Header="Cantidad" Binding="{Binding Model.Cantidad}" Width="*" />
+                                                <DataGridTextColumn Header="Total" Binding="{Binding Model.Suma}" Width="*" />
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </Expander>
