@@ -60,6 +60,8 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexComboRepuestos = value;
+				cantidadRepuesto = 0;
+				OnPropertyChanged("CantidadRepuesto");
                 OnPropertyChanged("CombosOk");
                 OnPropertyChanged("StockRepuesto");
                 OnPropertyChanged("IsCantidadOk");
@@ -104,7 +106,7 @@ namespace Ventas.ViewModels {
             set {
                 int cant = 0;
                 if (int.TryParse(value, out cant))
-                    if (cant > 0) {
+                    if (cant > 0 && cant<=int.Parse(StockRepuesto)) {
                         cantidadRepuesto = cant;
                         OnPropertyChanged("IsCantidadOk");
                     }
@@ -133,21 +135,20 @@ namespace Ventas.ViewModels {
         public ICommand Agregar {
             get {
                 return agregar ?? (agregar = new RelayCommand(() => {
-                    Repuesto re = repuestos[indexComboRepuestos]; 
-                    if (re.NumArticulos < cantidadRepuesto) {
-                        MessageBox.Show("Error. No hay stock suficiente de ese repuesto. ","Error"); 
-                    }
-                    else {
-                        re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
-                        venta.DetallesVentas.Add(
-                            new DetalleVenta {
-                                Cantidad = cantidadRepuesto,
-                                Repuesto = repuestos[indexComboRepuestos]
-                            }
-                        );
-                        OnPropertyChanged("StockRepuesto");
-                        OnPropertyChanged("Venta");
-                    }
+                    Repuesto re = repuestos[indexComboRepuestos];                     
+                    re.NumArticulos = re.NumArticulos - cantidadRepuesto; 
+                    venta.DetallesVentas.Add(
+                        new DetalleVenta {
+                            Cantidad = cantidadRepuesto,
+                            Repuesto = repuestos[indexComboRepuestos]
+                        }
+                    );
+					cantidadRepuesto = 0;
+					OnPropertyChanged("IsCantidadOk");
+					OnPropertyChanged("CantidadRepuesto");
+                    OnPropertyChanged("StockRepuesto");
+                    OnPropertyChanged("Venta");
+                    
                 }));
             }
         }
