@@ -33,6 +33,7 @@ namespace Ventas.ViewModels {
             ventas = listaVentas; 
             facadeClientes = new FacadeClientes();
             facadeRepuestos = new FacadeRepuestos();
+            facadeVentas = new FacadeVentas(); 
             venta = new Venta(); 
         }
 
@@ -52,13 +53,14 @@ namespace Ventas.ViewModels {
             get { return new VentaVM { Model = venta }; }
         }
 
-        private int indexCombo=-1; 
-        public int IndexCombo {
+        private int indexComboRepuestos=-1; 
+        public int IndexComboRepuestos {
             get {
-                return indexCombo;
+                return indexComboRepuestos;
             }
             set {
-                indexCombo = value;
+                indexComboRepuestos = value;
+                OnPropertyChanged("IsOk");
             }
         }
 
@@ -70,8 +72,9 @@ namespace Ventas.ViewModels {
             set {
                 indexComboClientes = value;
                 venta.DetallesVentas.Clear(); 
-                indexCombo = -1;
-                OnPropertyChanged("IndexCombo");
+                indexComboRepuestos = -1;
+                OnPropertyChanged("IndexComboRepuestos");
+                OnPropertyChanged("IsOk");
             }
         }
 
@@ -80,21 +83,35 @@ namespace Ventas.ViewModels {
 			get { return indexTab; }
 			set { 
 				indexTab = value;
-                indexCombo = -1;
+                indexComboRepuestos = -1;
 			}
 		}
 
         private int cantidadRepuesto;
-        public int CantidadRepuesto {
-            get { return cantidadRepuesto; }
+        public string CantidadRepuesto {
+            get { return cantidadRepuesto == 0 ? "" : Convert.ToString(cantidadRepuesto); }
             set {
-                cantidadRepuesto = value;
-                OnPropertyChanged("IsOk");
+                int cant = 0;
+                if (int.TryParse(value, out cant))
+                    if (cant > 0) {
+                        cantidadRepuesto = cant;
+                        OnPropertyChanged("IsOk");
+                    }
+                    else {
+                        cantidadRepuesto = 0;
+                        OnPropertyChanged("IsOk");
+                        throw new ArgumentException();
+                    }
+                else {
+                    cantidadRepuesto = 0;
+                    OnPropertyChanged("IsOk");
+                    throw new ArgumentException();
+                }
             }
         }
 
         public bool IsOk {
-            get { return cantidadRepuesto > 0 && indexCombo >= 0 && indexComboClientes >= 0; }
+            get { return  cantidadRepuesto > 0 && indexComboRepuestos >= 0 && indexComboClientes >= 0; }
         }
 
         ICommand agregar;
@@ -104,7 +121,7 @@ namespace Ventas.ViewModels {
                     venta.DetallesVentas.Add(
                         new DetalleVenta {
                             Cantidad = cantidadRepuesto,
-                            Repuesto = repuestos[indexCombo]
+                            Repuesto = repuestos[indexComboRepuestos]
                         }
                     );
                 }));

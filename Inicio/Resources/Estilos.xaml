@@ -20,6 +20,15 @@
         </Border>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="errorTemplateCantidad">
+        <Border>
+            <Grid>
+                <AdornedElementPlaceholder x:Name="_el" />
+                <Border BorderThickness="1" BorderBrush="Red" />
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
     <Style TargetType="{x:Type ListBoxItem}">
         <Setter Property="Template">
             <Setter.Value>
