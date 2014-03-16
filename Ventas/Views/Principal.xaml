@@ -72,7 +72,7 @@
                                 <Border VerticalAlignment="Top" Padding="10" Height="50" Width="auto">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                         <TextBlock Grid.Column="0" Grid.Row="0" Text="Repuestos" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,20,0"/>
-                                        <ComboBox Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" 
+                                        <ComboBox IsEnabled="{Binding IsComboClientesOk}" Grid.Column="1" Grid.Row="0" Width="200" VerticalAlignment="Center" 
                                                   ItemsSource="{Binding Repuestos}" SelectedIndex="{Binding IndexComboRepuestos}" DisplayMemberPath="Nombre" />
                                     </StackPanel>
                                 </Border>
