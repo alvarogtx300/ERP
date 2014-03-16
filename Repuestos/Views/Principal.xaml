@@ -27,7 +27,7 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="150"/>
-                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -60,7 +60,7 @@
                     <TextBlock Style="{StaticResource TabItemText}" Text="Proveedores" Margin="0,0,0,0" VerticalAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListBox x:Name="listaProveedores" SelectedItem="{Binding ObjetoSeleccionado}" Background="{x:Null}" ItemsSource="{Binding Proveedores}" HorizontalContentAlignment="Stretch">
+                    <ListBox x:Name="listaProveedores" SelectedItem="{Binding ObjetoSeleccionado}" Background="{x:Null}" ItemsSource="{Binding Proveedores}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -72,7 +72,7 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="150"/>
-                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
