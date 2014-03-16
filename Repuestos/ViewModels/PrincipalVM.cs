@@ -74,7 +74,7 @@ namespace Repuestos.ViewModels {
 							vm.Model.Codigo = 0;
 							view = new DialogoRepuestos {
 								DataContext = vm,
-								Title = "Agregar repuesto"
+								Title = "Agregar Repuesto"
 							};
 							if (view.ShowDialog() == true) {
 								if (facade.AgregarRepuesto(vm.Model)) {
@@ -99,7 +99,7 @@ namespace Repuestos.ViewModels {
 							vm.Model.Cif = null;
 							view = new DialogoProveedores {
 								DataContext = vm,
-								Title = "Agregar proveedor"
+								Title = "Agregar Proveedor"
 							};
 							if (view.ShowDialog() == true) {
 								if (facade.AgregarProveedor(vm.Model)) {
@@ -135,7 +135,7 @@ namespace Repuestos.ViewModels {
 
 						var view = new DialogoRepuestos {
 							DataContext = vm,
-							Title = "Modificar repuesto"						
+							Title = "Modificar Repuesto"						
 						};
 
 						if (view.ShowDialog() == true) {
@@ -155,7 +155,7 @@ namespace Repuestos.ViewModels {
 
 						var view = new DialogoProveedores {
 							DataContext = vm,
-							Title = "Modificar proveedor"
+							Title = "Modificar Proveedor"
 						};
 
 						if (view.ShowDialog() == true) {

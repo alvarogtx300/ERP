@@ -13,6 +13,10 @@ namespace Repuestos.Models {
 		private double precio;
 		private int numArticulos;
 
+		public Repuesto() {
+			numArticulos = -1;
+		}
+
 		public int Codigo {
 			get { return codigo; }
 			set { SetProperty(ref codigo, value, () => Codigo); }

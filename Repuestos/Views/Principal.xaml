@@ -37,15 +37,15 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Codigo"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Código"/>
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Descripcion"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Numero de articulos"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Descripción"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Número de artículos"/>
                                         <TextBlock Grid.Row="4" Grid.Column="0" Text="Precio" />
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Codigo}"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}"/>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Descripcion}"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding NumArticulos}"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Model.NumArticulos}"/>
                                         <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Precio}" />
 
                                     </Grid>
@@ -80,9 +80,9 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Cif"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="CIF"/>
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Descripcion"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Descripción"/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Cif}"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}"/>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Descripcion}"/>
@@ -94,33 +94,5 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
-        <!--
-        <ListBox x:Name="master"  Style="{StaticResource myListboxStyle}" Padding="-1" IsSynchronizedWithCurrentItem="True" Width="250" DockPanel.Dock="Left" DataContext="{Binding Clientes}" ItemsSource="{Binding}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="#FFF4F4F4" HorizontalContentAlignment="Stretch" BorderBrush="{x:Null}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="#FFE0E0E0" BorderThickness="0,0,0,1" >
-                        <Grid Margin="5,10,0,10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                        
-                            <TextBlock Foreground="Black" Grid.Row="0" Text="{Binding Nombre}"></TextBlock>
-                            <TextBlock Foreground="Black" Grid.Row="1" Text="{Binding Apellidos}"></TextBlock>
-                            <TextBlock Foreground="Black" Grid.Row="2" Text="{Binding Dni}"></TextBlock>
-                            <TextBlock Foreground="Black" Grid.Row="3" Text="{Binding Direccion}"></TextBlock>
-                            <TextBlock Foreground="Black" Grid.Row="4" Text="{Binding Telefono}"></TextBlock>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Grid>
-            
-        </Grid>
-        -->
     </DockPanel>
 </Window>
