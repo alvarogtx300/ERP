@@ -61,41 +61,75 @@ namespace Ventas.ViewModels {
             }
             set {
                 indexRepEstadisticas = value;
-                OnPropertyChanged("RepuestosVendidos"); 
+                OnPropertyChanged("RepuestosVendidos");
+                OnPropertyChanged("NumVentasRepuesto");
+                OnPropertyChanged("TotalRecaudadoRepuesto");
+                OnPropertyChanged("MediaRecaudadoRepuesto"); 
             }
         }
 
+        private int repuestosVendidos=0; 
         public string RepuestosVendidos {
             get {
-                int cant = 0;
                 if (indexRepEstadisticas >= 0) {
                     Repuesto reSelect = repuestos[indexRepEstadisticas];
                     ventas.ToList<Venta>().ForEach(ven => {
                         ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
                             if (detVenta.Repuesto.Codigo == reSelect.Codigo)
-                                cant += detVenta.Cantidad;
+                                repuestosVendidos += detVenta.Cantidad;
                         });
                     }); 
-                    return Convert.ToString(cant); 
+                    return Convert.ToString(repuestosVendidos); 
                 }
                 else
                     return "...";
             }
         }
 
-        /*
-        public int NumVentasRepuesto {
-            get { }
+        private int numVentasRepuesto = 0; 
+        public string NumVentasRepuesto {
+            get {
+                if (indexRepEstadisticas >= 0) {
+                    Repuesto reSelect = repuestos[indexRepEstadisticas];
+                    ventas.ToList<Venta>().ForEach(ven => {
+                        List<DetalleVenta> detVentas = ven.DetallesVentas.ToList();
+                        if (detVentas.Any(det => det.Repuesto.Codigo == reSelect.Codigo))
+                            numVentasRepuesto++; 
+                    });
+                    return Convert.ToString(numVentasRepuesto);
+                }
+                else
+                    return "...";
+            }
         }
 
-        public int TotalRecaudadoRepuesto {
-            get { }
+        private double totalRecaudadoRepuesto=0; 
+        public string TotalRecaudadoRepuesto {
+            get {
+                if (indexRepEstadisticas >= 0) {
+                    Repuesto reSelect = repuestos[indexRepEstadisticas];
+                    ventas.ToList<Venta>().ForEach(ven => {
+                        ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
+                            if (detVenta.Repuesto.Codigo == reSelect.Codigo)
+                                totalRecaudadoRepuesto += detVenta.Cantidad * reSelect.Precio;
+                        });
+                    });
+                    return Convert.ToString(totalRecaudadoRepuesto);
+                }
+                else
+                    return "...";
+            }
         }
 
-        public int MediaRecaudadoRepuesto {
-            get { }
+        public string MediaRecaudadoRepuesto {
+            get {
+                if (indexRepEstadisticas >= 0) {
+                    return Convert.ToString(numVentasRepuesto>0 ? totalRecaudadoRepuesto / numVentasRepuesto : 0);
+                }
+                else
+                    return "...";
+            }
         }
-        */
 
         private int indexComboRepuestos=-1; 
         public int IndexComboRepuestos {
@@ -127,6 +161,7 @@ namespace Ventas.ViewModels {
                 OnPropertyChanged("IndexComboRepuestos");
                 OnPropertyChanged("StockRepuesto");
                 OnPropertyChanged("IsCantidadOk");
+                OnPropertyChanged("IsComboClientesOk");
                 OnPropertyChanged("CombosOk");
             }
         }
@@ -171,6 +206,10 @@ namespace Ventas.ViewModels {
             get { return indexComboClientes>=0 && indexComboRepuestos>=0; }
         }
 
+        public bool IsComboClientesOk {
+            get { return indexComboClientes >= 0; }
+        }
+
         public bool IsCantidadOk {
             get { return  cantidadRepuesto > 0; }
         }
@@ -211,6 +250,7 @@ namespace Ventas.ViewModels {
                     OnPropertyChanged("IndexComboClientes");
                     OnPropertyChanged("IndexComboRepuestos");
                     OnPropertyChanged("StockRepuesto");
+                    OnPropertyChanged("IsComboClientesOk");
                     OnPropertyChanged("CombosOk");
                     OnPropertyChanged("IsCantidadOk");
                     OnPropertyChanged("Ventas");
