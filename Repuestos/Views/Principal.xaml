@@ -4,9 +4,6 @@
         Title="Repuestos - Proveedores" MinHeight="480" MinWidth="800" Height="480" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                
-            </MenuItem>
             <MenuItem Header="Agregar" Command="{Binding Agregar}"/>
             <MenuItem Header="Modificar" Command="{Binding Modificar}" IsEnabled="{Binding IsSelected}" />
             <MenuItem Header="Eliminar" Command="{Binding Eliminar}" IsEnabled="{Binding IsSelected}"/>

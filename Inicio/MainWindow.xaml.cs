@@ -32,7 +32,7 @@ namespace Taller {
 			var view = new Clientes.Views.Principal {
 				DataContext=vm
 			};
-			view.Show();
+			view.ShowDialog();
 		}
 
 		private void repuestos(object sender, RoutedEventArgs e) {
@@ -42,7 +42,7 @@ namespace Taller {
 			var view =new Repuestos.Views.Principal{
 				DataContext=vm
 			};
-			view.Show();
+			view.ShowDialog();
 		}
 
         private void ventas(object sender, RoutedEventArgs e) {
@@ -54,7 +54,7 @@ namespace Taller {
             var view = new Ventas.Views.Principal {
                 DataContext = vm
             };
-            view.Show();
+            view.ShowDialog();
         }
 	}
 }
