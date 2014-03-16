@@ -18,51 +18,66 @@ namespace Repuestos.Logic {
 					Codigo=1,
 					Descripcion="Rueda de 20'",
 					Nombre="Rueda",
-					NumArticulos=5,
-					Precio=25.50
+					NumArticulos=30,
+					Precio=80
 				},
 				new Repuesto{
 					Codigo=2,
 					Descripcion="Pequeños",
 					Nombre="Amortiguador",
-					NumArticulos=3,
-					Precio=30
+					NumArticulos=10,
+					Precio=100.50
 				},
 				new Repuesto{
-					Codigo=2,
-					Descripcion="Pequeños",
-					Nombre="Amortiguador",
-					NumArticulos=3,
-					Precio=30
+					Codigo=3,
+					Descripcion="Para coches de gasolina",
+					Nombre="Filtro de gasolina",
+					NumArticulos=15,
+					Precio=3
 				},
 				new Repuesto{
-					Codigo=2,
-					Descripcion="Pequeños",
-					Nombre="Amortiguador",
-					NumArticulos=3,
-					Precio=30
+					Codigo=4,
+					Descripcion="Para coches de diesel",
+					Nombre="Filtro de diesel",
+					NumArticulos=15,
+					Precio=3
 				},
 				new Repuesto{
-					Codigo=2,
-					Descripcion="Pequeños",
-					Nombre="Amortiguador",
-					NumArticulos=3,
-					Precio=30
+					Codigo=5,
+					Descripcion="Un filtro güeno güeno",
+					Nombre="Filtro de aire",
+					NumArticulos=50,
+					Precio=5
 				},
 				new Repuesto{
-					Codigo=2,
-					Descripcion="Pequeños",
-					Nombre="Amortiguador",
-					NumArticulos=3,
-					Precio=30
+					Codigo=6,
+					Descripcion="Para alumbrado",
+					Nombre="Fusibles",
+					NumArticulos=200,
+					Precio=0.22
 				}
 			};
 
 			proveedores = new ObservableCollection<Proveedor> {
 				new Proveedor{
-					Cif="04555784A",
+					Cif="A04555784",
 					Descripcion="Ruedas Juan",
 					Nombre="Juan S.L."
+				},
+				new Proveedor{
+					Cif="A07456357",
+					Descripcion="Venta de repuestos al por mayor",
+					Nombre="Repuestos Lisboa"
+				},
+				new Proveedor{
+					Cif="L04248452",
+					Descripcion="Venta de repuestos",
+					Nombre="Repuestos Marquez"
+				},
+				new Proveedor{
+					Cif="L04562112",
+					Descripcion="Venta de componenetes electricos",
+					Nombre="Electricidad Moreno S.L."
 				}
 			};
 		}

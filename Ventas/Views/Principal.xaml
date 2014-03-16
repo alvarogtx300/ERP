@@ -19,7 +19,7 @@
                                         <Expander.Header>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding Model.Cliente.Nombre}" Margin="5,0,5,0" />
-                                                <TextBlock Text="{Binding Model.Fecha}" Margin="5,0,5,0" />
+                                                <TextBlock Text="{Binding Fecha}" Margin="5,0,5,0" />
                                             </StackPanel>
                                         </Expander.Header>
                                         <!--Contenido del expander-->

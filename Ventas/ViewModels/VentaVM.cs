@@ -20,6 +20,12 @@ namespace Ventas.ViewModels {
             }
         }
 
+		public String Fecha {
+			get {
+				return String.Format("{0:d/M/yyyy HH:mm}", Model.Fecha);
+			}
+		}
+
         public bool IsVentaOk {
             get { return Model.DetallesVentas.Count>0; }
         }
