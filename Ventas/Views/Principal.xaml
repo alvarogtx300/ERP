@@ -94,8 +94,7 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource BotonDialogo}" Content="Guardar" 
-                                IsDefault="True" IsEnabled="{Binding Venta.IsVentaOk}"
-                                Command="{Binding GuardarVenta}" />
+                                IsEnabled="{Binding Venta.IsVentaOk}" Command="{Binding GuardarVenta}" />
                         </Grid>
                     </Border>
                 </TabItem.Content>
