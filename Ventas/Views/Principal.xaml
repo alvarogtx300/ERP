@@ -5,9 +5,6 @@
         MinHeight="480" MinWidth="600" Margin="0" Padding="0">
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Archivo" />
-        </Menu>
         <TabControl SelectedIndex="{Binding IndexTab}" BorderBrush="{x:Null}" Background="#E5E5E5" Resources="{StaticResource TabItemBorder}" Template="{StaticResource TabControlTemplate}" Padding="4,0,4,2" Grid.IsSharedSizeScope="True" Margin="0">
             <TabItem>
                 <TabItem.Header>
