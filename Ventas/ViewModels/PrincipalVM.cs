@@ -239,6 +239,7 @@ namespace Ventas.ViewModels {
         public ICommand GuardarVenta {
 			get {
                 return guardarVenta ?? (guardarVenta = new RelayCommand(() => {
+					venta.Fecha = DateTime.Now;
                     facadeVentas.AgregarVenta(venta);
                     venta = new Venta();
                     indexComboRepuestos = -1;
