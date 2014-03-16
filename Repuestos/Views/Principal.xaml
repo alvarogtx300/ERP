@@ -45,7 +45,7 @@
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Codigo}"/>
                                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}"/>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Model.Descripcion}"/>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding NumArticulos}"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Model.NumArticulos}"/>
                                         <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Precio}" />
 
                                     </Grid>

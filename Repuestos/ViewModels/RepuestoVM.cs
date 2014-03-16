@@ -76,11 +76,11 @@ namespace Repuestos.ViewModels {
 		}
 
 		public string NumArticulos {
-			get { return Model.NumArticulos==0 ? "" : Model.NumArticulos.ToString(); }
+			get { return Model.NumArticulos==-1 ? "" : Model.NumArticulos.ToString(); }
 			set {
 				int num;
 				if (!String.IsNullOrWhiteSpace(value) && int.TryParse(value, out num))
-					if (num > 0) {
+					if (num >= 0) {
 						Model.NumArticulos = num;
 						OnPropertyChanged("IsOK");
 					}
