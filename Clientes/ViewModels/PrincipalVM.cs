@@ -70,7 +70,7 @@ namespace Clientes.ViewModels {
 							vm.Model.Dni = null;
 							view = new DetalleCliente {
 								DataContext = vm,
-								Title = "Agregar cliente"
+								Title = "Agregar Cliente"
 							};
 							if (view.ShowDialog() == true) {
 								if (facade.AgregarCliente(vm.Model)) {
@@ -97,7 +97,7 @@ namespace Clientes.ViewModels {
 							vm.Model.Model.Matricula = null;
 							view = new DetalleVehiculo {
 								DataContext = vm,
-								Title = "Agregar vehiculo"
+								Title = "Agregar Vehículo"
 							};
 							if (view.ShowDialog() == true) {
 								if (facade.AgregarVehiculo(vm.Model.Model)) {
@@ -153,7 +153,7 @@ namespace Clientes.ViewModels {
 
                         var view = new DetalleVehiculo {
                             DataContext = vm,
-                            Title = "Modificar Vehiculo"
+                            Title = "Modificar Vehículo"
                         };
                         if (view.ShowDialog() == true) {
                             facade.ModificarVehiculo(vm.Model.Model);
