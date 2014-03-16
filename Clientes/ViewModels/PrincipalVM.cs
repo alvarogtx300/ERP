@@ -137,6 +137,7 @@ namespace Clientes.ViewModels {
                         if (view.ShowDialog() == true) {
                             facade.ModificarCliente(vm.Model);
                             OnPropertyChanged("Clientes");
+							OnPropertyChanged("Vehiculos");
                         }
                     }
                     else if (objetoSeleccionado is VehiculoVM) {
@@ -172,6 +173,7 @@ namespace Clientes.ViewModels {
                         if (objetoSeleccionado is ClienteVM) {
                             facade.EliminarCliente(((ClienteVM)objetoSeleccionado).Model);
                             OnPropertyChanged("Clientes");
+							OnPropertyChanged("Vehiculos");
                         }
                         else if (objetoSeleccionado is VehiculoVM) {
                             facade.EliminarVehiculo(((VehiculoVM)objetoSeleccionado).Model);

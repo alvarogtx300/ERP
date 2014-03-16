@@ -71,6 +71,10 @@ namespace Clientes.Logic {
         }
 
         public void EliminarCliente(Cliente c) {
+			vehiculos.ToList<Vehiculo>().ForEach((v) => {
+				if (v.RelacionCliente.Equals(c))
+					vehiculos.Remove(v);
+			});
             clientes.Remove(c);
         }
 
