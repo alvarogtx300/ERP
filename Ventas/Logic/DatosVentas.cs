@@ -14,34 +14,6 @@ namespace Ventas.Logic {
 
 		private DatosVentas() {
 			ventas = new ObservableCollection<Venta>();
-			ventas.Add(new Venta {
-				Cliente = new Clientes.Models.Cliente {
-					Nombre = "Prueba"
-				},
-				Fecha = DateTime.Now,
-				DetallesVentas = new ObservableCollection<DetalleVenta>{
-					new DetalleVenta {
-                        Repuesto=new Repuesto{
-						    Codigo=1,
-						    Descripcion="Rueda de 20'",
-						    Nombre="Rueda",
-						    NumArticulos=5,
-						    Precio=25.50
-					    },
-                        Cantidad=4
-                    },
-					new DetalleVenta {
-                        Repuesto=new Repuesto{
-						    Codigo=1,
-						    Descripcion="Rueda de 20'",
-						    Nombre="Rueda",
-						    NumArticulos=5,
-						    Precio=25.50
-					    },
-                        Cantidad=2
-                    }
-				}
-			});
 		}
 
 		public static DatosVentas Instance {
