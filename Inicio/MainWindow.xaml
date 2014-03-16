@@ -1,10 +1,15 @@
 ﻿<Window x:Class="Taller.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <Button Click="clientes">Clientes</Button>
-        <Button Click="repuestos">Repuestos</Button>
-        <Button Click="ventas">Ventas</Button>
-    </StackPanel>
+        Title="Inicio" Height="330" Width="500" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button  Grid.Row="0" Click="clientes" Style="{StaticResource BotonDialogo}" Background="#F9F9F9" BorderThickness="2" FontSize="20">Clientes</Button>
+        <Button Grid.Row="1" Click="repuestos" Style="{StaticResource BotonDialogo}" Background="#F9F9F9" BorderThickness="2" FontSize="20">Repuestos</Button>
+        <Button Grid.Row="2" Click="ventas" Style="{StaticResource BotonDialogo}" Background="#F9F9F9" BorderThickness="2" FontSize="20">Ventas</Button>
+    </Grid>
 </Window>
