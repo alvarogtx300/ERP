@@ -53,6 +53,64 @@ namespace Ventas.ViewModels {
             get { return new VentaVM { Model = venta }; }
         }
 
+        //Estadisticas globales
+        public string RepuestoMasVendido {
+            get {
+                Repuesto reMax=null;
+                int cantMax=0;
+                int cant; 
+                repuestos.ToList<Repuesto>().ForEach(rep => {
+                    ventas.ToList<Venta>().ForEach(ven => {
+                        cant=0; 
+                        ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
+                            if (detVenta.Repuesto.Equals(rep))
+                                cant+=detVenta.Cantidad; 
+                        });
+                        if (cant > cantMax) {
+                            reMax = rep;
+                            cantMax = cant; 
+                        }
+                    }); 
+                });
+                return reMax!=null ? reMax.Nombre : "...";
+            }
+        }
+
+        public string ClienteConMasGasto {
+            get {
+                Cliente clienteMax = null;
+                double cantMax = 0;
+                double cant;
+                clientes.ToList<Cliente>().ForEach(cli => {
+                    ventas.ToList<Venta>().ForEach(ven => {
+                        if(ven.Cliente.Equals(cli)) {
+                            cant = 0;
+                            ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
+                                cant += detVenta.Cantidad * detVenta.Repuesto.Precio;
+                            });
+                            if (cant > cantMax) {
+                                clienteMax = cli;
+                                cantMax = cant;
+                            }
+                        }
+                    });
+                });
+                return clienteMax != null ? clienteMax.Nombre+"  "+clienteMax.Apellidos : "...";
+            }
+        }
+
+        public string GananciasTotales {
+            get {
+                double cant=0;
+                ventas.ToList<Venta>().ForEach(ven => {
+                    ven.DetallesVentas.ToList<DetalleVenta>().ForEach(detVenta => {
+                        cant += detVenta.Cantidad * detVenta.Repuesto.Precio;
+                    });
+                });
+                return Convert.ToString(cant);
+            }
+        }
+
         //Estadisticas cliente
         private int indexRepEstadisticas=-1; 
         public int IndexRepEstadisticas {
@@ -264,7 +322,10 @@ namespace Ventas.ViewModels {
                     OnPropertyChanged("RepuestosVendidos");
                     OnPropertyChanged("NumVentasRepuesto");
                     OnPropertyChanged("TotalRecaudadoRepuesto");
-                    OnPropertyChanged("MediaRecaudadoRepuesto"); 
+                    OnPropertyChanged("MediaRecaudadoRepuesto");
+                    OnPropertyChanged("RepuestoMasVendido");
+                    OnPropertyChanged("ClienteConMasGasto");
+                    OnPropertyChanged("GananciasTotales"); 
                 }
 			}
 		}

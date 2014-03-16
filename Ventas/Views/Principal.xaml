@@ -19,6 +19,7 @@
                                         <Expander.Header>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding Model.Cliente.Nombre}" Margin="5,0,5,0" />
+                                                <TextBlock Text="{Binding Model.Cliente.Apellidos}" Margin="0,0,5,0" />
                                                 <TextBlock Text="{Binding Fecha}" Margin="5,0,5,0" />
                                             </StackPanel>
                                         </Expander.Header>
@@ -106,12 +107,16 @@
                 </TabItem.Header>
                 <TabItem.Content>
                     <Grid Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Margin="20">
-                            <TextBlock Text="Resumen por Producto" HorizontalAlignment="Center" FontSize="14"/>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20">
+                            <TextBlock Text="Resumen por Producto" HorizontalAlignment="Center" FontSize="16"/>
                             <ComboBox Margin="0,10,0,0" ItemsSource="{Binding Repuestos}" 
                                       DisplayMemberPath="Nombre" SelectedIndex="{Binding IndexRepEstadisticas}" />
                             <Grid Margin="5,10,5,0">
@@ -141,8 +146,8 @@
                                            HorizontalAlignment="Right" Text="{Binding MediaRecaudadoRepuesto}" Margin="0,10,0,9" />
                             </Grid>
                         </StackPanel>
-                        <StackPanel Grid.Column="1" Margin="20">
-                            <TextBlock Text="Resumen por Cliente" HorizontalAlignment="Center" FontSize="14"/>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="20">
+                            <TextBlock Text="Resumen por Cliente" HorizontalAlignment="Center" FontSize="16"/>
                             <ComboBox Margin="0,10,0,0" ItemsSource="{Binding Clientes}" 
                                       DisplayMemberPath="Datos" SelectedIndex="{Binding IndexClienteEstadisticas}" />
                             <Grid Margin="5,10,5,0">
@@ -170,6 +175,29 @@
                                            HorizontalAlignment="Right" Text="{Binding TotalGastadoCliente}" Margin="0,10,0,9" />
                                 <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" 
                                            HorizontalAlignment="Right" Text="{Binding MediaGastadoCliente}" Margin="0,10,0,9" />
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Grid Margin="5,10,5,0" Width="300">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="175"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Repuesto mas vendido: " Grid.ColumnSpan="2" Margin="0,10,0,9" Height="16" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Cliente que mas ha gastado: " Grid.ColumnSpan="2" Margin="0,10,0,9" Height="16" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Ganancias totales: " Grid.ColumnSpan="2" Margin="0,10,0,9" Height="16" />
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" 
+                                           HorizontalAlignment="Right" Text="{Binding RepuestoMasVendido}" Margin="0,10,0,9" Height="16" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" 
+                                           HorizontalAlignment="Right" Text="{Binding ClienteConMasGasto}" Margin="0,10,0,9" Height="16" />
+                                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" 
+                                           HorizontalAlignment="Right" Text="{Binding GananciasTotales}" Margin="0,10,0,9" Height="16" />
                             </Grid>
                         </StackPanel>
                     </Grid>
