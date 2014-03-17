@@ -83,8 +83,8 @@
                                         <TextBlock Grid.Row="0" Grid.Column="0" Text="Matrícula"/>
                                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Modelo"/>
                                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Dueño"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Modelo}"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Matricula}"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Matricula}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Modelo}"/>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding DatosDuenio}" />
 
                                     </Grid>

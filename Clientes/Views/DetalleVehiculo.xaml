@@ -36,8 +36,8 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Modelo " VerticalAlignment="Center"></TextBlock>            
             <TextBlock Grid.Column="0" Grid.Row="2" Text="Dueño " VerticalAlignment="Center"></TextBlock>
 
-            <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Modelo,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox x:Name="txMatricula" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Matricula,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox x:Name="txMatricula" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Matricula,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Validation.ErrorTemplate="{StaticResource errorTemplate}" HorizontalAlignment="Stretch" Text="{Binding Model.Modelo,ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" />
             <ComboBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" 
                       ItemsSource="{Binding ListaClientes}" DisplayMemberPath="Datos"
                       SelectedIndex="{Binding IndexCombo}"/>
